@@ -23,6 +23,16 @@ public:
 KNN(LoadData load);
 
 /**
+ * this function get a string of vectors and update/init the vector list of the load data object.
+ * @param str
+ */
+void loadLabeledVectorsString(string str);
+/**
+ * this function get a string of vectors and update/init the vector list of the load data object.
+ * @param str
+ */
+void loadUnLabeledVectorsString(string str);
+/**
  * metric setter
  */
 void setMat(string mat);
