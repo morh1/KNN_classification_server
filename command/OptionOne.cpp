@@ -1,16 +1,26 @@
-//
-// Created by mor on 1/13/23.
-//
-
 #include "OptionOne.h"
-class OptionOne: public Command {
-private:
-    Operations *operation;
 
-public:
-    OptionOne(Operations *operation){this.operation=operation;}
+OptionOne::OptionOne(Operations *operation) {
+    this->operation=operation;
+}
 
-    void execute() {
-        operation->uploadCSVDataFile();
+void OptionOne::execute() {
+    string str;
+    this->dio->write(UPLOAD_CSV_TRAIN);
+    str = this->dio->read();
+    if(str == ERROR){
+        return;
     }
-};
+    this->operation->loadKnnFromStringTrain(str);
+    this->dio->write(UPLOAD_CSV_TEST);
+    str = this->dio->read();
+    if(str == ERROR){
+        return;
+    }
+    this->operation->loadKnnFromStringTest(str);
+    if(str == ERROR){
+        return;
+    }
+    // set init to true
+
+}

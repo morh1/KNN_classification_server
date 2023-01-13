@@ -111,6 +111,12 @@ double KNN::stringBasedMetricCalc(vector<double> v1, vector<double> v2) {
 
 }
 
+void KNN::loadLabeledVectorsString(string str) {
+    //
+}
+void KNN::loadUnLabeledVectorsString(string str) {
+    //
+}
 
 
 

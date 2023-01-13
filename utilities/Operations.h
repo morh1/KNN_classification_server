@@ -6,6 +6,13 @@
 class Operations {
 public:
     KNN knn;
+    bool dataUploaded;
+
+    Operations();
+    void dataUploadedSuccessfully();
+    void loadKnnFromStringTrain(string str);
+    void loadKnnFromStringTest(string str);
+
     void uploadCSVDataFile();
     void algorithmSettings();
     void classifyData();
