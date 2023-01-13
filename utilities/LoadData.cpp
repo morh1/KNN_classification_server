@@ -9,7 +9,146 @@ using namespace std;
 /**
  * The default constructor.
  */
-LoadData::LoadData() {}
+LoadData::LoadData() { }
+/**
+* update the LabeledVector list
+*/
+void createLabeled(string s){
+    stringstream stream(s);
+    string token;
+    //if the file isn't empty
+    if (s != NULL)
+    {
+            //separate the file's string by new line, etch line is a labeled vector.
+            while(getline(stream,token,'\n')){
+                //looking for the classification word
+                int i=token.length()-1;
+                while(token[i]!=','){
+                    i--;
+                }
+                //separate between the classification and the vector string
+                string classification =token.substr (i+1,token.length()-1-i);
+                string strVec=token.substr (0,i);
+                Vector<double>* l=vectorFromString(strVec);
+                //if the vector is valid
+                if(l){
+                    if(this->Labeled_vectors.empty()){
+                     // updates the first vector size member
+                        this->vectorSize = (*l).getVecSize();
+                    }
+                    else
+                    {
+                        // the vectors isn't in the same size
+                        if((*l).getVecSize()!=this->vectorSize){
+                            cout << "ERROR - The size of the vectors is different"<<endl;
+                            exit(0);
+                        }
+                    }
+                    LabeledVector labeledVector;
+                    //update the vector in the labeledVector
+                    labeledVector.setVec(*l);
+                    //update the classification in the labeledVector
+                    labeledVector.setLabel(classification);
+                    //update the labeledVector list member
+                    this->Labeled_vectors.push_back(labeledVector);
+                }
+                else{
+                    cout << "ERROR - not a valid number"<<endl;
+                    exit(0);
+                }
+            }
+        }
+    }
+}
+/**
+* return a string as a LabeledVector
+* @param (string)
+* @return (vector*)
+*/
+vector<double>* LoadData::vectorFromString(string strVec) {
+    vector<double> v;
+    stringstream stream(strVec);
+    //while the string isn't empty
+    while (stream.good()){
+        string num;
+        //separate the words by ,
+        getline(stream,num,',');
+        //if the word is digit
+        if (!(Utilities::validateNumStr(num))) {
+            return nullptr;
+        }
+        else{
+            v.push_back(stod(num));
+        }
+    }
+    return &v;
+}
+/**
+* create the LabeledVector list
+* @param assignment (string)
+*/
+void createUnLabeled(string s){
+    stringstream stream(s);
+    string token;
+    //if the file isn't empty
+    if (s != NULL)
+    {
+        //separate the file's string by new line, etch line is a labeled vector.
+        while(getline(stream,token,'\n')){
+            Vector<double>* l=vectorFromString(token);
+            //if the vector is valid
+            if(l){
+                if(this->Labeled_vectors.empty()){
+                    // updates the first vector size member
+                    this->vectorSize = (*l).getVecSize();
+                }
+                else
+                {
+                    // the vectors isn't in the same size
+                    if((*l).getVecSize()!=this->vectorSize){
+                        cout << "ERROR - The size of the vectors is different"<<endl;
+                        exit(0);
+                    }
+                }
+                UnlabeledVector unlabeled;
+                //update the vector in the unlabeledVector
+                unlabeled.setVec(*l);
+                //update the unlabeledVector list member
+                this->unlabeled_vectors.push_back(unlabeled);
+            }
+            else{
+                cout << "ERROR - not a valid number"<<endl;
+                exit(0);
+            }
+        }
+    }
+}
+/**
+* returns the labeled vector list member
+* @return list (list<LabeledVector>)
+*/
+list<LabeledVector> LoadData::getLabeledList() {
+    return this->Labeled_vectors;
+}
+/**
+* returns the unlabeled vectors list member
+* @return list (list<UnLabeledVector>)
+*/
+list<UnLabeledVector> LoadData::getUnLabeledList() {
+    return this->unlabeled_vectors;
+}
+/**
+* returns the initial_flag parameter
+* @return int
+*/
+int LoadData::getFlag() {
+    return this->initial_flag;
+}
+
+
+
+
+//Irrelevant
 /**
  * The constructor updates the path member.
  *
@@ -77,13 +216,10 @@ void LoadData ::fromPath(){
     }
 
 }
-/**
-* returns the vector list member
-* @return list (list<LabeledVector>)
-*/
+/*
 list<LabeledVector> LoadData::getVecList() {
     return this->vectors;
-}
+}*/
 /**
 * returns the vectors size
 * @return int
@@ -91,11 +227,7 @@ list<LabeledVector> LoadData::getVecList() {
 int LoadData::getVecSize() {
     return this->vectorSize;
 }
-/**
-* return a string aas a LabeledVector
-* @param (string,strimg)
-* @return (LabeledVector*)
-*/
+/*
 LabeledVector* LoadData::vectorFromString(string strVec,string classification) {
     vector<double> v;
     stringstream stream(strVec);
@@ -114,7 +246,7 @@ LabeledVector* LoadData::vectorFromString(string strVec,string classification) {
     }
     LabeledVector *lPtr= new LabeledVector(v,classification);
     return lPtr;
-}
+}*/
 /**
 * returns the path string member
 * @return string
