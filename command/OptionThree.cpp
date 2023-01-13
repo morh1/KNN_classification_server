@@ -3,3 +3,14 @@
 //
 
 #include "OptionThree.h"
+class OptionThree: public Command {
+private:
+    Operations *operation;
+
+public:
+    OptionThree(Operations *operation){this.operation=operation;}
+
+    void execute() {
+        operation->classifyData();
+    }
+};
