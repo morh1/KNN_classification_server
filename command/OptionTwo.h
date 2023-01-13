@@ -7,7 +7,8 @@
 
 
 class OptionTwo {
-
+public:
+    void execute();
 };
 
 

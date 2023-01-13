@@ -3,3 +3,14 @@
 //
 
 #include "OptionTwo.h"
+class OptionTwo: public Command {
+private:
+    Operations *operation;
+
+public:
+    OptionTwo(Operations *operation){this.operation=operation;}
+
+    void execute() {
+        operation->algorithmSettings();
+    }
+};

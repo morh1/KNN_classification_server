@@ -3,3 +3,14 @@
 //
 
 #include "OptionEight.h"
+class OptionEight: public Command {
+private:
+    Operations *operation;
+
+public:
+    OptionEight(Operations  *operation){this.operation=operation;}
+
+    void execute() {
+        operation->exit();
+    }
+};
