@@ -1,8 +1,11 @@
 #ifndef KNN_CLASSIFICATION_SERVER_OPERATIONS_H
 #define KNN_CLASSIFICATION_SERVER_OPERATIONS_H
 
+#include "KNN.h"
+
 class Operations {
 public:
+    KNN knn;
     void uploadCSVDataFile();
     void algorithmSettings();
     void classifyData();
