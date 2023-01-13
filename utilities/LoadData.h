@@ -10,11 +10,50 @@ using namespace std;
 
 class LoadData {
 private:
+    //Irrelevant
     string path;
-    list<LabeledVector> vectors;
+    list<LabeledVector> Labeled_vectors;
+    list<UnlabeledVector> unlabeled_vectors;
     int vectorSize;
 public:
     LoadData();
+/**
+* update the LabeledVector list
+*  @param assignment (string)
+*/
+    void createLabeled(string s);
+/**
+* create the LabeledVector list
+* @param assignment (string)
+*/
+   void createUnLabeled(string s);
+/**
+ * return a string as a LabeledVector
+ * @param (string)
+ * @return (vector*)
+ */
+    vector<double>* vectorFromString(string strVec);
+/**
+* returns the labeled vector list member
+* @return list (list<LabeledVector>)
+*/
+    list<LabeledVector> getLabeledList();
+/**
+ * returns the unlabeled vectors list member
+ * @return list (list<UnLabeledVector>)
+ */
+    list<UnLabeledVector> getUnLabeledList();
+
+
+
+
+
+
+
+
+
+
+
 /**
  * The constructor updates the path member.
  *
