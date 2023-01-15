@@ -4,6 +4,8 @@
 #include <list>
 #include <thread>
 #include "Server.h"
+#include "../runner/CLI.h"
+#include "../IO/DefaultIO.h"
 using namespace std;
 void createCLI(){
 
@@ -12,7 +14,9 @@ int main()
 {
     list<thread> treads;
     for (auto tread: treads) {
-        tread=tread(createCLI);
+        DefaultIO dio = DefaultIO dio;
+        CLI cli=CLI cli(dio);
+        tread=tread(cli.start());
     }
     return 0;
 
