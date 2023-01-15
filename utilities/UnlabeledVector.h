@@ -16,7 +16,7 @@ public:
  * The constructor updates the members.
  * @param assignment (vector<double>)
  */
-    void UnlabeledVector(vector<double> vector);
+    UnlabeledVector(vector<double> vector);
 /**
 * returns the vector member
 * @return vector<double>

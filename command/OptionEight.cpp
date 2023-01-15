@@ -3,6 +3,9 @@
 //
 
 #include "OptionEight.h"
+/*
+ *
+
 class OptionEight: public Command {
 private:
     Operations *operation;
@@ -13,4 +16,4 @@ public:
     void execute() {
         operation->exit();
     }
-};
+}; */

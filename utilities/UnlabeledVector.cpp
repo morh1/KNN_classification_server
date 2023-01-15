@@ -5,12 +5,12 @@
 /**
  * The default constructor.
  */
-UnlabeledVector::UnlabeledVector() {}
+//UnlabeledVector::UnlabeledVector() {}
 /**
  * The constructor updates the members.
  * @param assignment (vector<double> ,string)
  */
-UnlabeledVector:: LabeledVector(vector<double> vector){
+UnlabeledVector:: UnlabeledVector(vector<double> vector){
     this->doubleVector = vector;
 }
 /**

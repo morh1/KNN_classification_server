@@ -5,6 +5,9 @@
 #include <list>
 #include "LoadData.h"
 #include "Utilities.h"
+
+vector<double> *vectorFromString(string basicString);
+
 using namespace std;
 /**
  * The default constructor.
@@ -13,11 +16,11 @@ LoadData::LoadData() { }
 /**
 * update the LabeledVector list
 */
-bool createLabeled(string s){
+bool LoadData::createLabeled(string s){
     stringstream stream(s);
     string token;
     //if the file isn't empty
-    if (s != NULL)
+    if (!s.empty())
     {
             //separate the file's string by new line, etch line is a labeled vector.
             while(getline(stream,token,'\n')){
@@ -29,17 +32,17 @@ bool createLabeled(string s){
                 //separate between the classification and the vector string
                 string classification =token.substr (i+1,token.length()-1-i);
                 string strVec=token.substr (0,i);
-                Vector<double>* l=vectorFromString(strVec);
+                vector<double>* l= vectorFromString(strVec);
                 //if the vector is valid
                 if(l){
                     if(this->Labeled_vectors.empty()){
                      // updates the first vector size member
-                        this->vectorSize = (*l).getVecSize();
+                        this->vectorSize = (*l).size();
                     }
                     else
                     {
                         // the vectors isn't in the same size
-                        if((*l).getVecSize()!=this->vectorSize){
+                        if((*l).size()!=this->vectorSize){
                             return false;
                         }
                     }
@@ -57,13 +60,14 @@ bool createLabeled(string s){
             }
         }
     }
-}
+
 /**
 * return a string as a LabeledVector
 * @param (string)
 * @return (vector*)
 */
-vector<double>* LoadData::vectorFromString(string strVec) {
+
+vector<double>* LoadData:: vectorFromString(string strVec) {
     vector<double> v;
     stringstream stream(strVec);
     //while the string isn't empty
@@ -85,25 +89,26 @@ vector<double>* LoadData::vectorFromString(string strVec) {
 * create the LabeledVector list
 * @param assignment (string)
 */
-bool createUnLabeled(string s){
+bool LoadData::createUnLabeled(string s){
+    vector<double>* l;
     stringstream stream(s);
     string token;
     //if the file isn't empty
-    if (s != NULL)
+    if (s.empty())
     {
         //separate the file's string by new line, etch line is a labeled vector.
         while(getline(stream,token,'\n')){
-            Vector<double>* l=vectorFromString(token);
+             l=vectorFromString(token);
             //if the vector is valid
             if(l){
                 if(this->Labeled_vectors.empty()){
                     // updates the first vector size member
-                    this->vectorSize = (*l).getVecSize();
+                    this->vectorSize = (*l).size();
                 }
                 else
                 {
                     // the vectors isn't in the same size
-                    if((*l).getVecSize()!=this->vectorSize){
+                    if((*l).size()!=this->vectorSize){
                         return false;
                     }
                 }
@@ -130,7 +135,7 @@ list<LabeledVector> LoadData::getLabeledList() {
 * returns the unlabeled vectors list member
 * @return list (list<UnLabeledVector>)
 */
-list<UnLabeledVector> LoadData::getUnLabeledList() {
+list<UnlabeledVector> LoadData::getUnLabeledList() {
     return this->unlabeled_vectors;
 }
 
@@ -153,6 +158,9 @@ LoadData :: LoadData(string path){
  * and updates the vectors list member.
  *
  */
+ /*
+  *
+
 void LoadData ::fromPath(){
     string line;
     ifstream file;
@@ -205,7 +213,7 @@ void LoadData ::fromPath(){
         exit(0);
     }
 
-}
+}  */
 /*
 list<LabeledVector> LoadData::getVecList() {
     return this->vectors;

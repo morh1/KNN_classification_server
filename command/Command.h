@@ -23,10 +23,10 @@ public:
     Command();
 
     //execute() abstract method
-    virtual void execute() = 0;
+    virtual void execute() ;
 
     //printDescription() abstract method
-    virtual void printDescription() = 0;
+   // virtual void printDescription() = 0;
 };
 
 

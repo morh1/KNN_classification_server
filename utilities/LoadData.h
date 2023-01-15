@@ -5,6 +5,8 @@
 #include <vector>
 #include <list>
 #include "LabeledVector.h"
+#include "UnlabeledVector.h"
+
 #include <cstring>
 using namespace std;
 
@@ -43,7 +45,7 @@ public:
  * returns the unlabeled vectors list member
  * @return list (list<UnLabeledVector>)
  */
-    list<UnLabeledVector> getUnLabeledList();
+    list<UnlabeledVector> getUnLabeledList();
 
 
 

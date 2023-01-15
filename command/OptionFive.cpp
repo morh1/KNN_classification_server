@@ -3,7 +3,9 @@
 //
 
 #include "OptionFive.h"
-class OptionFive: public Command {
+/*
+ *
+lass OptionFive: public Command {
 private:
     Operations *operation;
 
@@ -13,4 +15,4 @@ public:
     void execute() {
         operation->downloadResults();
     }
-};
+}; */
