@@ -16,12 +16,18 @@ private:
     int k;
 public:
 /**
- * the function get vector and return it's classification by implements the KNN algorithm
+ * The Knn constructor
  *
  * @param (vector<double>)
  * @return (string)
  */
 KNN(LoadData load);
+/**
+ * The Knn constructor
+ *
+ * @return (string)
+ */
+KNN();
 /**
  * metric setter
  */
