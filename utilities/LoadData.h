@@ -10,23 +10,24 @@ using namespace std;
 
 class LoadData {
 private:
-    //Irrelevant
-    string path;
     list<LabeledVector> Labeled_vectors;
     list<UnlabeledVector> unlabeled_vectors;
     int vectorSize;
+    //Irrelevant
+    string path;
+
 public:
     LoadData();
 /**
 * update the LabeledVector list
 *  @param assignment (string)
 */
-    void createLabeled(string s);
+    bool createLabeled(string s);
 /**
 * create the LabeledVector list
 * @param assignment (string)
 */
-   void createUnLabeled(string s);
+   bool createUnLabeled(string s);
 /**
  * return a string as a LabeledVector
  * @param (string)

@@ -1,26 +1,25 @@
 #include "OptionOne.h"
 
-OptionOne::OptionOne(Operations *operation) {
-    this->operation=operation;
+OptionOne::OptionOne(DefaultIO io,KNN* knn) {
+    this.io=io;
+    this->knn=knn;
 }
 
 void OptionOne::execute() {
-    string str;
+    string labeled_str, unlabeled_str;;
+    //asks for a csv path of the classified vectors
     this->dio->write(UPLOAD_CSV_TRAIN);
-    str = this->dio->read();
-    if(str == ERROR){
-        return;
-    }
-    this->operation->loadKnnFromStringTrain(str);
+    //gets the csv content as a string
+    labeled_str = this->dio->read();
+    //asks for a csv path of the unclassified vectors
     this->dio->write(UPLOAD_CSV_TEST);
-    str = this->dio->read();
-    if(str == ERROR){
+    //gets the csv content as a string
+    unlabeled_str = this->dio->read();
+    //insert the string into the knn data
+    this->knn.loadVectorsList(labeled_str,unlabeled_str);
+    //if the data is valid
+    if(!(this->knn.validData)){
         return;
     }
-    this->operation->loadKnnFromStringTest(str);
-    if(str == ERROR){
-        return;
-    }
-    // set init to true
 
 }
