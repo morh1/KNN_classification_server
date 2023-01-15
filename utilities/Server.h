@@ -1,0 +1,14 @@
+//
+// Created by mor on 1/15/23.
+//
+
+#ifndef KNN_CLASSIFICATION_SERVER_SERVER_H
+#define KNN_CLASSIFICATION_SERVER_SERVER_H
+
+
+class Server {
+
+};
+
+
+#endif //KNN_CLASSIFICATION_SERVER_SERVER_H
