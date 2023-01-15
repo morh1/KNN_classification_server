@@ -110,13 +110,14 @@ double KNN::stringBasedMetricCalc(vector<double> v1, vector<double> v2) {
     return 0;
 
 }
+void KNN::loadVectorsList(string labeled_str,string unlabeled_str){
+    this.validData=false;
+    if(this->loadData.createLabeled(labeled_str) && this->loadData.createUnLabeled(unlabeled_str)){
+        validData=true;
+    }
+}
 
-void KNN::loadLabeledVectorsString(string str) {
-    //
-}
-void KNN::loadUnLabeledVectorsString(string str) {
-    //
-}
+
 
 
 

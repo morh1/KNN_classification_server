@@ -13,7 +13,7 @@ LoadData::LoadData() { }
 /**
 * update the LabeledVector list
 */
-void createLabeled(string s){
+bool createLabeled(string s){
     stringstream stream(s);
     string token;
     //if the file isn't empty
@@ -40,8 +40,7 @@ void createLabeled(string s){
                     {
                         // the vectors isn't in the same size
                         if((*l).getVecSize()!=this->vectorSize){
-                            cout << "ERROR - The size of the vectors is different"<<endl;
-                            exit(0);
+                            return false;
                         }
                     }
                     LabeledVector labeledVector;
@@ -53,8 +52,7 @@ void createLabeled(string s){
                     this->Labeled_vectors.push_back(labeledVector);
                 }
                 else{
-                    cout << "ERROR - not a valid number"<<endl;
-                    exit(0);
+                    return false;
                 }
             }
         }
@@ -87,7 +85,7 @@ vector<double>* LoadData::vectorFromString(string strVec) {
 * create the LabeledVector list
 * @param assignment (string)
 */
-void createUnLabeled(string s){
+bool createUnLabeled(string s){
     stringstream stream(s);
     string token;
     //if the file isn't empty
@@ -106,8 +104,7 @@ void createUnLabeled(string s){
                 {
                     // the vectors isn't in the same size
                     if((*l).getVecSize()!=this->vectorSize){
-                        cout << "ERROR - The size of the vectors is different"<<endl;
-                        exit(0);
+                        return false;
                     }
                 }
                 UnlabeledVector unlabeled;
@@ -117,8 +114,7 @@ void createUnLabeled(string s){
                 this->unlabeled_vectors.push_back(unlabeled);
             }
             else{
-                cout << "ERROR - not a valid number"<<endl;
-                exit(0);
+                return false;
             }
         }
     }
@@ -137,13 +133,7 @@ list<LabeledVector> LoadData::getLabeledList() {
 list<UnLabeledVector> LoadData::getUnLabeledList() {
     return this->unlabeled_vectors;
 }
-/**
-* returns the initial_flag parameter
-* @return int
-*/
-int LoadData::getFlag() {
-    return this->initial_flag;
-}
+
 
 
 

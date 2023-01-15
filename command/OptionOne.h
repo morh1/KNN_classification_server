@@ -9,7 +9,8 @@
 #include "../utilities/Operations.h"
 class OptionOne : public Command{
 private:
-    Operations *operation;
+    KNN *knn;
+    DefaultIO io;
 
 public:
     OptionOne(Operations *operation);

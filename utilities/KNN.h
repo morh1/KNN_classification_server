@@ -10,6 +10,7 @@
 using namespace std;
 class KNN {
 private:
+    bool validData=false;
     LoadData loadData;
     string mat;
     int k;
@@ -21,22 +22,16 @@ public:
  * @return (string)
  */
 KNN(LoadData load);
-
-/**
- * this function get a string of vectors and update/init the vector list of the load data object.
- * @param str
- */
-void loadLabeledVectorsString(string str);
-/**
- * this function get a string of vectors and update/init the vector list of the load data object.
- * @param str
- */
-void loadUnLabeledVectorsString(string str);
 /**
  * metric setter
  */
 void setMat(string mat);
-
+/**
+ * sends the csv information to loadData and updates the flag if the data is valid
+ *
+ * @param (string,string)
+ */
+void loadVectorsList(string labeled_str,string unlabeled_str)
 /**
  * k neighborhood setter  setter
  */
