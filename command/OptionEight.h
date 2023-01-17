@@ -2,11 +2,18 @@
 // Created by mor on 1/13/23.
 //
 
-#ifndef KNN_CLASSIFICATION_SERVER_OPTIONEIGHT_H
-#define KNN_CLASSIFICATION_SERVER_OPTIONEIGHT_H
+#ifndef KNN_CLASSIFICATION_SERVER_OPTIONONE_H
+#define KNN_CLASSIFICATION_SERVER_OPTIONONE_H
+#include "Command.h"
+#include "../utilities/Operations.h"
+class OptionEight : public Command{
+private:
+    KNN knn;
+public:
+    OptionEight();
+    OptionEight(DefaultIO &io,KNN &knn);
+    void execute() override;
 
-class OptionEight {
-
+    void printDescription();
 };
-
 #endif //KNN_CLASSIFICATION_SERVER_OPTIONEIGHT_H

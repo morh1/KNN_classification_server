@@ -3,19 +3,16 @@
 //
 
 #include "OptionFive.h"
-/*
- *
-lass OptionFive: public Command {
-private:
-    Operations *operation;
-
-public:
-    OptionFive(Operations *operation){this.operation=operation;}
-
-    void execute() {
-        operation->downloadResults();
-    }
-}; */
-void OptionFive::execute() {
-
+OptionFive::OptionFive(DefaultIO &dio,KNN &knn) {
+    this->dio = &dio;
+    this->knn= knn;
 }
+OptionFive ::OptionFive() {}
+
+
+void OptionFive::printDescription() {
+    this->dio->write(this->description);
+}
+
+
+void OptionFive::execute() {}

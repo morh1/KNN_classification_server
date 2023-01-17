@@ -11,8 +11,8 @@ using namespace std;
 class KNN {
 private:
     LoadData loadData;
-    string mat;
-    int k;
+    string mat = "EUC";
+    int k=5;
 public:
 /**
  * The Knn constructor
@@ -38,9 +38,17 @@ void setMat(string mat);
  */
 void loadVectorsList(string labeled_str,string unlabeled_str);
 /**
- * k neighborhood setter  setter
+ * k neighborhood setter
  */
 void setK(int k);
+/**
+ * k neighborhood getter
+ */
+int getK();
+/**
+ * mat getter
+ */
+string getMat();
 /**
  * the function gets 2 vectors and calculate the distance between them according
  * to the distance algorithm name the in the member mat
