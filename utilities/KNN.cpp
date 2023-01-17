@@ -29,6 +29,7 @@ public:
 };
 
 using namespace std;
+KNN ::KNN() {}
 KNN :: KNN(LoadData loadData) {
     this->loadData = loadData;
 }
@@ -46,6 +47,7 @@ void KNN::setMat(string mat) {
  * @param (vector<double>)
  * @return (string)
  */
+ /*
 string KNN::findClassification(const vector<double>& vector) {
     //gets the classified vectors list
     list<LabeledVector> lst = this->loadData.getVecList();
@@ -85,7 +87,7 @@ string KNN::findClassification(const vector<double>& vector) {
     }
 
     return maxString;
-}
+}*/
 /**
  * the function gets 2 vectors and calculate the distance between them according
  * to the distance algorithm name the in the member mat

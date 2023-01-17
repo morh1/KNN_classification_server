@@ -18,7 +18,7 @@ int main()
     StandardIO dio =StandardIO();
     CLI cli = CLI(dio);
     thread t;
-    //t = thread(cli.start());
+    cli.start();
 
     return 0;
 

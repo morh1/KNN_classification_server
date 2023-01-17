@@ -4,6 +4,7 @@ OptionOne::OptionOne(DefaultIO* io,KNN* knn) {
     this->io =io;
     this->knn=knn;
 }
+OptionOne ::OptionOne() {}
 /*
  *
 

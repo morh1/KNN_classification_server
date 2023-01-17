@@ -17,3 +17,6 @@ public:
         operation->displayData();
     }
 };*/
+void OptionFour::execute() {
+
+}

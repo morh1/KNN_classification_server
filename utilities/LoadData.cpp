@@ -149,10 +149,13 @@ list<UnlabeledVector> LoadData::getUnLabeledList() {
  *
  * @param assignment (string)
  */
+ /*
+  *
+
 LoadData :: LoadData(string path){
     this->path = path;
     fromPath();
-}
+} */
 /**
  * The function gets the classified vectors from the csv file
  * and updates the vectors list member.

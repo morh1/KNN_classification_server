@@ -5,7 +5,7 @@
 /**
  * The default constructor.
  */
-//UnlabeledVector::UnlabeledVector() {}
+UnlabeledVector::UnlabeledVector() {}
 /**
  * The constructor updates the members.
  * @param assignment (vector<double> ,string)

@@ -16,7 +16,7 @@ public:
     OptionOne();
     OptionOne(DefaultIO *io,KNN* knn);
     //void printDescription();
-    void execute();
+    void execute() override;
 };
 
 
