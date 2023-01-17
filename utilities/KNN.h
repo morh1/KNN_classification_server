@@ -10,7 +10,6 @@
 using namespace std;
 class KNN {
 private:
-    bool validData=false;
     LoadData loadData;
     string mat;
     int k;
@@ -37,7 +36,7 @@ void setMat(string mat);
  *
  * @param (string,string)
  */
-void loadVectorsList(string labeled_str,string unlabeled_str)
+void loadVectorsList(string labeled_str,string unlabeled_str);
 /**
  * k neighborhood setter  setter
  */
@@ -58,6 +57,7 @@ void setK(int k);
  */
     string findClassification(const vector<double>& vector);
 
+    bool validData=false;
 };
 
 

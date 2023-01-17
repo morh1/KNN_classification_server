@@ -3,6 +3,9 @@
 //
 
 #include "OptionTwo.h"
+/*
+ *
+
 class OptionTwo: public Command {
 private:
     Operations *operation;
@@ -14,3 +17,7 @@ public:
         operation->algorithmSettings();
     }
 };
+*/
+void OptionTwo::execute() {
+
+}

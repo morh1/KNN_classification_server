@@ -10,11 +10,13 @@
 class OptionOne : public Command{
 private:
     KNN *knn;
-    DefaultIO io;
+    DefaultIO *io;
 
 public:
-    OptionOne(Operations *operation);
-    void execute();
+    OptionOne();
+    OptionOne(DefaultIO *io,KNN* knn);
+    //void printDescription();
+    void execute() override;
 };
 
 

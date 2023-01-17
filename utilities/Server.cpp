@@ -10,14 +10,16 @@ using namespace std;
 void createCLI(){
 
 }
+using namespace std;
 int main()
 {
     list<thread> treads;
-    for (auto tread: treads) {
-        DefaultIO dio = DefaultIO dio;
-        CLI cli=CLI cli(dio);
-        tread=tread(cli.start());
-    }
+
+    StandardIO dio =StandardIO();
+    CLI cli = CLI(dio);
+    thread t;
+    cli.start();
+
     return 0;
 
 }

@@ -29,11 +29,13 @@ class CLI {
     OptionEight opt8;
     list<Command> comList;
 
+public:
      CLI(StandardIO dio){
         this->dio =dio;
-        this->opt1 = OptionOne(dio,&knn);
-        this->comList.push_back(opt1);
+        this->opt1 = OptionOne(&dio,&knn);
+        //this->comList.push_back(opt1);
     }
+    void start();
 
 
 

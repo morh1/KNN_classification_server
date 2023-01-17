@@ -3,6 +3,9 @@
 //
 
 #include "OptionFour.h"
+/*
+ *
+
 class OptionFour: public Command {
 private:
     Operations *operation;
@@ -13,4 +16,7 @@ public:
     void execute() {
         operation->displayData();
     }
-};
+};*/
+void OptionFour::execute() {
+
+}
