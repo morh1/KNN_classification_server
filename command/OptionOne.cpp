@@ -1,6 +1,6 @@
 #include "OptionOne.h"
 
-OptionOne::OptionOne(DefaultIO* io,KNN* knn) {
+OptionOne::OptionOne(DefaultIO* io,KNN &knn) {
     this->io =io;
     this->knn=knn;
 }
