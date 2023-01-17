@@ -3,20 +3,17 @@
 //
 
 #include "OptionFour.h"
-/*
- *
-
-class OptionFour: public Command {
-private:
-    Operations *operation;
-
-public:
-    OptionFour(Operations *operation){this.operation=operation;}
-
-    void execute() {
-        operation->displayData();
-    }
-};*/
-void OptionFour::execute() {
-
+OptionFour::OptionFour(DefaultIO &dio,KNN &knn) {
+    this->dio = &dio;
+    this->knn= knn;
 }
+OptionFour ::OptionFour() {}
+
+
+void OptionFour::printDescription() {
+    this->dio->write(this->description);
+}
+
+
+void OptionFour::execute() {}
+

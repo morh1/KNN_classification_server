@@ -41,6 +41,13 @@ void KNN::setK(int k) {
 void KNN::setMat(string mat) {
     this->mat = mat;
 }
+
+int KNN::getK() {
+    return this->k;
+}
+string KNN::getMat() {
+    return this->mat;
+}
 /**
  *  the function get vector and return it's classification by implements the KNN algorithm
  *

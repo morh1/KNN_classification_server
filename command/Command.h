@@ -10,6 +10,8 @@
 #define UPLOAD_CSV_TRAIN "Please upload your local train CSV file."
 #define UPLOAD_CSV_TEST "Please upload your local test CSV file."
 #define ERROR "ERROR"
+#define ERROR_MET "invalid value for metric"
+#define ERROR_K "invalid value for K"
 
 
 using namespace std;
