@@ -1,5 +1,6 @@
 #include "OptionOne.h"
 
+
 OptionOne::OptionOne(DefaultIO &dio,KNN &knn) {
     this->dio = &dio;
     this->knn= knn;
