@@ -4,11 +4,8 @@
 Command ::Command(DefaultIO *dio) {
     this->dio =dio;
 }
-Command ::Command() {
 
-
-}
-
-void Command::execute() {
+Command::Command() {
 
 }
+

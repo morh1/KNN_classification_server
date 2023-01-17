@@ -9,14 +9,13 @@
 #include "../utilities/Operations.h"
 class OptionOne : public Command{
 private:
-    KNN *knn;
-    DefaultIO *io;
-
+    KNN knn;
 public:
     OptionOne();
-    OptionOne(DefaultIO *io,KNN* knn);
-    //void printDescription();
+    OptionOne(DefaultIO &io,KNN &knn);
     void execute() override;
+
+    void printDescription();
 };
 
 

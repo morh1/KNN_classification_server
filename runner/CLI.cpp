@@ -5,6 +5,9 @@
 #include "CLI.h"
 
 void CLI::start() {
+    this->opt1
+
+
     cout <<"hey"<<endl;
 
 }

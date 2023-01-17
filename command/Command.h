@@ -18,15 +18,15 @@ protected:
     string description;
     DefaultIO *dio;
 public:
-    Command(DefaultIO * dio);
+    explicit Command(DefaultIO * dio);
 
     Command();
 
     //execute() abstract method
-    virtual void execute() ;
+    virtual void execute() =0;
 
     //printDescription() abstract method
-   // virtual void printDescription() = 0;
+    virtual void printDescription() = 0;
 };
 
 
