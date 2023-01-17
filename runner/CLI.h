@@ -19,7 +19,7 @@
  */
 class CLI {
 
-    StandardIO dio;
+    DefaultIO* dio;
     KNN knn;
 
     OptionOne opt1;
@@ -31,9 +31,9 @@ class CLI {
 
 public:
      CLI(StandardIO dio){
-        this->dio =dio;
-        this->opt1 = OptionOne(&dio,&knn);
-        //this->comList.push_back(opt1);
+        this->dio = &dio;
+        this->opt1 = OptionOne(dio,knn);
+        (this->comList).push_back(opt1);
     }
     void start();
 

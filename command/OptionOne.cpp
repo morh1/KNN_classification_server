@@ -1,17 +1,17 @@
 #include "OptionOne.h"
 
-OptionOne::OptionOne(DefaultIO* io,KNN &knn) {
-    this->io =io;
-    this->knn=knn;
+
+OptionOne::OptionOne(DefaultIO &dio,KNN &knn) {
+    this->dio = &dio;
+    this->knn= knn;
 }
 OptionOne ::OptionOne() {}
-/*
- *
+
 
 void OptionOne::printDescription() {
     this->dio->write(this->description);
 }
-*/
+
 
 void OptionOne::execute() {
     string labeled_str, unlabeled_str;;
@@ -24,9 +24,9 @@ void OptionOne::execute() {
     //gets the csv content as a string
     unlabeled_str = this->dio->read();
     //insert the string into the knn data
-    this->knn->loadVectorsList(labeled_str,unlabeled_str);
+    this->knn.loadVectorsList(labeled_str,unlabeled_str);
     //if the data is valid
-    if(!(this->knn->validData)){
+    if(!(this->knn.validData)){
         return;
     }
 
