@@ -1,2 +1,6 @@
 /cmake-build-debug/
 /CMakeLists.txt
+/.idea/KNN_classification_server.iml
+/.idea/misc.xml
+/.idea/vcs.xml
+/.idea/modules.xml

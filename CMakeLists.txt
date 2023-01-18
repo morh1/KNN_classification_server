@@ -21,6 +21,8 @@ add_executable(KNN_classification_server
         command/OptionOne.h
         command/OptionTwo.cpp
         command/OptionTwo.h
+        command/OptionThree.cpp
+        command/OptionThree.h
         IO/DefaultIO.cpp
         IO/DefaultIO.h
         IO/StandardIO.cpp

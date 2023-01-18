@@ -3,19 +3,15 @@
 //
 
 #include "OptionFive.h"
-/*
- *
-lass OptionFive: public Command {
-private:
-    Operations *operation;
+#include "OptionOne.h"
+OptionFive::OptionFive(DefaultIO *dio,KNN &knn) {
+    this->dio = dio;
+    this->knn= knn;
+    this->description ="opt five desc";
+}
+OptionFive ::OptionFive() {}
 
-public:
-    OptionFive(Operations *operation){this.operation=operation;}
 
-    void execute() {
-        operation->downloadResults();
-    }
-}; */
 void OptionFive::execute() {
 
 }
