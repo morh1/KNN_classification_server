@@ -6,7 +6,7 @@
 OptionEight::OptionEight(DefaultIO *dio,KNN &knn) {
     this->dio = dio;
     this->knn= knn;
-    this->description ="opt eight desc";
+    this->description ="8. exit";
 }
 OptionEight ::OptionEight() {}
 
