@@ -1,11 +1,12 @@
 #include "OptionTwo.h"
 #include "Utilities.h"
+using namespace std;
 
 
 OptionTwo::OptionTwo(DefaultIO *dio,KNN &knn) {
     this->dio = dio;
     this->knn= knn;
-    this->description ="opt two desc";
+    this->description ="2. algorithm settings";
 }
 //OptionTwo ::OptionTwo() = default;
 
@@ -14,13 +15,13 @@ OptionTwo::OptionTwo(DefaultIO *dio,KNN &knn) {
 void OptionTwo::execute() {
     string input;
     //display the knn parameters
-    cout<<"The current KNN parameters are: K = "<<this->knn.getK()<<", distance metric = "<<this->knn.getMat();
+    this->dio->write("The current KNN parameters are: K = "+ to_string(this->knn.getK()) + ", distance metric = " + this->knn.getMat());
     //gets the input string
     input = this->dio->read();
     if(input!="/n"){
         bool met=false,k=false;
         list<string> lsInput = Utilities::separateInput(dio->read());
-        if(stoi(lsInput.front())){
+        if(Utilities::validInt(lsInput.front())){
             k=true;
         }
         else{

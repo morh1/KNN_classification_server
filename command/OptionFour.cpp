@@ -6,7 +6,7 @@
 OptionFour::OptionFour(DefaultIO *dio,KNN &knn) {
     this->dio = dio;
     this->knn= knn;
-    this->description ="opt four desc";
+    this->description ="4. display results";
 }
 OptionFour ::OptionFour() {}
 

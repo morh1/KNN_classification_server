@@ -7,7 +7,7 @@
 OptionFive::OptionFive(DefaultIO *dio,KNN &knn) {
     this->dio = dio;
     this->knn= knn;
-    this->description ="opt five desc";
+    this->description ="5. download results";
 }
 OptionFive ::OptionFive() {}
 

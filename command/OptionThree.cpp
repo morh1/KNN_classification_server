@@ -7,7 +7,7 @@
 OptionThree::OptionThree(DefaultIO *dio,KNN &knn) {
     this->dio = dio;
     this->knn= knn;
-    this->description ="opt three desc";
+    this->description ="3. classify data";
 }
 OptionThree ::OptionThree() {}
 

@@ -5,6 +5,10 @@
 #include "DefaultIO.h"
 #include <cstdio>
 #include <iostream>
+#include <cstdlib>
+#include <cstring>
+#include <fstream>
+#include <string>
 using namespace std;
 class StandardIO : public DefaultIO {
     string read();
