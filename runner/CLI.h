@@ -24,6 +24,7 @@ class CLI {
 
     OptionOne opt1;
     OptionTwo opt2;
+    OptionThree opt3;
     OptionFour opt4;
     OptionFive opt5;
     OptionEight opt8;

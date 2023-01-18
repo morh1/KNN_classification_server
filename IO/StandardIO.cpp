@@ -6,5 +6,5 @@ string StandardIO::read() {
     return str;
 }
 void StandardIO::write(string string) {
-    cout << string;
+    cout << string<<endl;
 }

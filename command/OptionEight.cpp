@@ -3,17 +3,11 @@
 //
 
 #include "OptionEight.h"
-/*
- *
+OptionEight::OptionEight(DefaultIO *dio,KNN &knn) {
+    this->dio = dio;
+    this->knn= knn;
+    this->description ="opt eight desc";
+}
+OptionEight ::OptionEight() {}
 
-class OptionEight: public Command {
-private:
-    Operations *operation;
-
-public:
-    OptionEight(Operations  *operation){this.operation=operation;}
-
-    void execute() {
-        operation->exit();
-    }
-}; */
+void OptionEight::execute() {}

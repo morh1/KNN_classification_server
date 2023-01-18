@@ -6,10 +6,16 @@
 #define KNN_CLASSIFICATION_SERVER_OPTIONFIVE_H
 
 
-class OptionFive {
-public:
-    void execute();
-};
+#include "Command.h"
+#include "KNN.h"
 
+class OptionFive : public Command{
+private:
+    KNN knn;
+public:
+    OptionFive();
+    OptionFive(DefaultIO *dio,KNN &knn);
+    void execute() override;
+};
 
 #endif //KNN_CLASSIFICATION_SERVER_OPTIONFIVE_H
