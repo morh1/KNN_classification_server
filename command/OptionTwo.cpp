@@ -1,19 +1,16 @@
-//
-// Created by mor on 1/13/23.
-//
-
 #include "OptionTwo.h"
+#include "Utilities.h"
 
-OptionTwo::OptionTwo(DefaultIO &dio,KNN &knn) {
-    this->dio = &dio;
+
+OptionTwo::OptionTwo(DefaultIO *dio,KNN &knn) {
+    this->dio = dio;
     this->knn= knn;
+    this->description ="opt two desc";
 }
-OptionTwo ::OptionTwo() {}
+//OptionTwo ::OptionTwo() = default;
 
 
-void OptionTwo::printDescription() {
-    this->dio->write(this->description);
-}
+
 void OptionTwo::execute() {
     string input;
     //display the knn parameters
@@ -21,13 +18,13 @@ void OptionTwo::execute() {
     //gets the input string
     input = this->dio->read();
     if(input!="/n"){
-        bool met=false,bool k=false;
-        list<string> lsInput = Utilities::separateInput(string str_input);
-        if(atoi(lsInput.front())){
+        bool met=false,k=false;
+        list<string> lsInput = Utilities::separateInput(dio->read());
+        if(stoi(lsInput.front())){
             k=true;
         }
         else{
-            his->dio->write(ERROR_K);
+            this->dio->write(ERROR_K);
         }
         if(Utilities::validDisStr(lsInput.back())){
             met=true;
@@ -36,11 +33,12 @@ void OptionTwo::execute() {
             this->dio->write(ERROR_MET);
         }
         if(met && k){
-            this->knn.setK(lsInput.front());
+            this->knn.setK(stoi(lsInput.front()));
             this->knn.setMat(lsInput.back());
         }
 
     }
+    /*
     string labeled_str, unlabeled_str;
     //asks for a csv path of the classified vectors
     this->dio->write(UPLOAD_CSV_TRAIN);
@@ -56,4 +54,9 @@ void OptionTwo::execute() {
     if (!(this->knn.validData)) {
         return;
     }
+     */
+}
+
+OptionTwo::OptionTwo() {
+
 }

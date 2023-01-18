@@ -1,13 +1,12 @@
-//
-// Created by yarin on 1/15/23.
-//
-
 #include "CLI.h"
 
 void CLI::start() {
-    this->opt1
+    this->opt1.printDescription();
 
+}
 
-    cout <<"hey"<<endl;
-
+CLI::CLI(DefaultIO *dio){
+this->dio = dio;
+this->opt1 = OptionOne(dio,knn);
+// (this->comList).push_back(opt1);
 }

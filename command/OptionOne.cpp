@@ -1,17 +1,13 @@
 #include "OptionOne.h"
 
-
-OptionOne::OptionOne(DefaultIO &dio,KNN &knn) {
-    this->dio = &dio;
+OptionOne::OptionOne(DefaultIO * dio,KNN &knn) {
+    this->dio = dio;
     this->knn= knn;
+    this->description = "option one";
 }
-OptionOne ::OptionOne() {}
+OptionOne ::OptionOne(){
 
-
-void OptionOne::printDescription() {
-    this->dio->write(this->description);
 }
-
 
 void OptionOne::execute() {
     string labeled_str, unlabeled_str;;

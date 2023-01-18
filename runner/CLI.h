@@ -6,9 +6,9 @@
 #include "../command/Command.h"
 #include "../command/OptionOne.h"
 #include "../command/OptionTwo.h"
-#include "../command/OptionThree.h"
+#include "../command//OptionThree.h"
 #include "../command/OptionFour.h"
-#include "../command/OptionFive.h"
+#include "../command//OptionFive.h"
 #include "../command/OptionEight.h"
 #include "../utilities/KNN.h"
 
@@ -27,14 +27,10 @@ class CLI {
     OptionFour opt4;
     OptionFive opt5;
     OptionEight opt8;
-    list<Command> comList;
+    //list<Command> comList;
 
 public:
-     CLI(StandardIO dio){
-        this->dio = &dio;
-        this->opt1 = OptionOne(dio,knn);
-        (this->comList).push_back(opt1);
-    }
+    CLI(DefaultIO *dio);
     void start();
 
 

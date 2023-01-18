@@ -3,17 +3,20 @@
 //
 
 #include "OptionThree.h"
-OptionThree::OptionThree(DefaultIO &dio,KNN &knn) {
-    this->dio = &dio;
-    this->knn= knn;
+/*
+ *
+
+class OptionThree: public Command {
+private:
+    Operations *operation;
+
+public:
+    OptionThree(Operations *operation){this.operation=operation;}
+
+    void execute() {
+        operation->classifyData();
+    }
+}; */
+void OptionThree::execute() {
+
 }
-OptionThree ::OptionThree() {}
-
-
-void OptionThree::printDescription() {
-    this->dio->write(this->description);
-}
-
-
-void OptionThree::execute() {}
-

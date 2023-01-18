@@ -3,7 +3,6 @@
 
 
 #include <string>
-#include "Command.h"
 #include "../IO/DefaultIO.h"
 
 
@@ -20,15 +19,13 @@ protected:
     string description;
     DefaultIO *dio;
 public:
-    explicit Command(DefaultIO * dio);
-
     Command();
 
     //execute() abstract method
     virtual void execute() =0;
 
     //printDescription() abstract method
-    virtual void printDescription() = 0;
+    void printDescription();
 };
 
 
