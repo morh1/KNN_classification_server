@@ -32,12 +32,6 @@ KNN();
  */
 void setMat(string mat);
 /**
- * sends the csv information to loadData and updates the flag if the data is valid
- *
- * @param (string,string)
- */
-void loadVectorsList(string labeled_str,string unlabeled_str);
-/**
  * k neighborhood setter
  */
 void setK(int k);
@@ -49,6 +43,14 @@ int getK();
  * mat getter
  */
 string getMat();
+/**
+ * creat string that contain all the unlabeled vectors classification.
+ */
+string createClassificationStr();
+/**
+ * LoadData getter
+ */
+LoadData getLoadData();
 /**
  * the function gets 2 vectors and calculate the distance between them according
  * to the distance algorithm name the in the member mat

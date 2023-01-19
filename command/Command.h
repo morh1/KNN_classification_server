@@ -11,6 +11,8 @@
 #define ERROR "ERROR"
 #define ERROR_MET "invalid value for metric"
 #define ERROR_K "invalid value for K"
+#define PS_UPLOAD "please upload data"
+#define COMPLETE "classifying data complete"
 
 
 using namespace std;
