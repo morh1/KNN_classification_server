@@ -27,6 +27,8 @@ add_executable(KNN_classification_server
         IO/DefaultIO.h
         IO/StandardIO.cpp
         IO/StandardIO.h
+        #IO/SocketIO.h
+        #IO/SocketIO.cpp
         runner/CLI.cpp
         runner/CLI.h
 
@@ -38,11 +40,10 @@ add_executable(KNN_classification_server
         utilities/LabeledVector.h
         utilities/LoadData.cpp
         utilities/LoadData.h
-        utilities/Operations.cpp
-        utilities/Operations.h
         utilities/Server.cpp
         utilities/Server.h
         utilities/UnlabeledVector.cpp
         utilities/UnlabeledVector.h
         utilities/Utilities.cpp
-        utilities/Utilities.h)
+        utilities/Utilities.h
+        )
