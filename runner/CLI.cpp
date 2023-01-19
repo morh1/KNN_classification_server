@@ -3,7 +3,7 @@
 void CLI::start() {
     this->opt1.execute();
     //asks for a csv path of the classified vectors
-    this->dio->write("Welcome to the KNN Classifier Server. Please choose an option:");
+    this->dio->write("Welcome to the KNN Classifier main. Please choose an option:");
     for (auto  command : this->comList) {
         command->printDescription();
     }
