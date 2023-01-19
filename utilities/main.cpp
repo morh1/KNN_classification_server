@@ -3,7 +3,7 @@
 //
 #include <list>
 #include <thread>
-#include "Server.h"
+#include "main.h"
 #include "../runner/CLI.h"
 //#include "../IO/DefaultIO.h"
 #include "../IO/StandardIO.h"
@@ -11,7 +11,7 @@ using namespace std;
 void createCLI(){
 
 }
-using namespace std;
+
 int main()
 {
     //list<thread> treads;
