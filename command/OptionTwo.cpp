@@ -3,7 +3,7 @@
 using namespace std;
 
 
-OptionTwo::OptionTwo(DefaultIO *dio,KNN &knn) {
+OptionTwo::OptionTwo(DefaultIO *dio,KNN* knn) {
     this->dio = dio;
     this->knn= knn;
     this->description ="2. algorithm settings";
@@ -15,12 +15,12 @@ OptionTwo::OptionTwo(DefaultIO *dio,KNN &knn) {
 void OptionTwo::execute() {
     string input;
     //display the knn parameters
-    this->dio->write("The current KNN parameters are: K = "+ to_string(this->knn.getK()) + ", distance metric = " + this->knn.getMat());
+    this->dio->write("The current KNN parameters are: K = "+ to_string(this->knn->getK()) + ", distance metric = " + this->knn->getMat());
     //gets the input string
     input = this->dio->read();
-    if(input!="/n"){
+    if(!input.empty()){
         bool met=false,k=false;
-        list<string> lsInput = Utilities::separateInput(dio->read());
+        list<string> lsInput = Utilities::separateInput(input);
         if(Utilities::validInt(lsInput.front())){
             k=true;
         }
@@ -34,8 +34,8 @@ void OptionTwo::execute() {
             this->dio->write(ERROR_MET);
         }
         if(met && k){
-            this->knn.setK(stoi(lsInput.front()));
-            this->knn.setMat(lsInput.back());
+            this->knn->setK(stoi(lsInput.front()));
+            this->knn->setMat(lsInput.back());
         }
     }
 }

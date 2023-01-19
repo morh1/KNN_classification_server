@@ -5,10 +5,10 @@
 #include "KNN.h"
 class OptionFour : public Command{
 private:
-    KNN knn;
+    KNN* knn;
 public:
     OptionFour();
-    OptionFour(DefaultIO *dio,KNN &knn);
+    OptionFour(DefaultIO *dio,KNN* knn);
     void execute() override;
 };
 #endif //KNN_CLASSIFICATION_SERVER_OPTIONFOUR_H

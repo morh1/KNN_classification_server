@@ -6,10 +6,10 @@
 #include "KNN.h"
 class OptionThree : public Command{
 private:
-    KNN knn;
+    KNN* knn;
 public:
     OptionThree();
-    OptionThree(DefaultIO *dio,KNN &knn);
+    OptionThree(DefaultIO *dio,KNN* knn);
     void execute() override;
 };
 

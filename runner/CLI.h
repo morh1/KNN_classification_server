@@ -28,7 +28,7 @@ class CLI {
     OptionFour opt4;
     OptionFive opt5;
     OptionEight opt8;
-    list<Command*> comList;
+    Command* comArray[6];
 
 public:
     CLI(DefaultIO *dio);

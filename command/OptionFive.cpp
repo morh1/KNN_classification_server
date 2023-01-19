@@ -4,7 +4,7 @@
 
 #include "OptionFive.h"
 #include "OptionOne.h"
-OptionFive::OptionFive(DefaultIO *dio,KNN &knn) {
+OptionFive::OptionFive(DefaultIO *dio,KNN* knn) {
     this->dio = dio;
     this->knn= knn;
     this->description ="5. download results";

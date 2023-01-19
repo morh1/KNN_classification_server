@@ -11,10 +11,10 @@
 
 class OptionFive : public Command{
 private:
-    KNN knn;
+    KNN* knn;
 public:
     OptionFive();
-    OptionFive(DefaultIO *dio,KNN &knn);
+    OptionFive(DefaultIO *dio,KNN* knn);
     void execute() override;
 };
 

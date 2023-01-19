@@ -3,7 +3,7 @@
 //
 
 #include "OptionFour.h"
-OptionFour::OptionFour(DefaultIO *dio,KNN &knn) {
+OptionFour::OptionFour(DefaultIO *dio,KNN* knn) {
     this->dio = dio;
     this->knn= knn;
     this->description ="4. display results";
