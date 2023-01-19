@@ -1,12 +1,11 @@
 #include <string>
-#include <iostream>
 #include <fstream>
 #include <vector>
 #include <list>
 #include "LoadData.h"
 #include "Utilities.h"
 
-vector<double> *vectorFromString(string basicString);
+vector<double> vectorFromString(string basicString);
 
 using namespace std;
 /**
@@ -16,8 +15,9 @@ LoadData::LoadData() { }
 /**
 * update the LabeledVector list
 */
-bool LoadData::createLabeled(string s){
+list<LabeledVector> LoadData::createLabeled(string s){
     stringstream stream(s);
+    list<LabeledVector> vecList;
     string token;
     //if the file isn't empty
     if (!s.empty())
@@ -32,33 +32,37 @@ bool LoadData::createLabeled(string s){
                 //separate between the classification and the vector string
                 string classification =token.substr (i+1,token.length()-1-i);
                 string strVec=token.substr (0,i);
-                vector<double>* l= vectorFromString(strVec);
+                vector<double> l= vectorFromString(strVec);
                 //if the vector is valid
-                if(l){
-                    if(this->Labeled_vectors.empty()){
-                     // updates the first vector size member
-                        this->vectorSize = (*l).size();
+                if(l.empty()){
+                    //return an empty list;
+                    vecList.clear();
+                }
+                else{
+                    if(vecList.empty()){
+                        // updates the first vector size member
+                        this->vectorSize = l.size();
                     }
                     else
                     {
-                        // the vectors isn't in the same size
-                        if((*l).size()!=this->vectorSize){
-                            return false;
+                        // the vectors isn't in the same size >> in valid
+                        if(l.size()!=this->vectorSize){
+                            //return an empty vector list
+                            vecList.clear();
+                            return vecList;
                         }
                     }
                     LabeledVector labeledVector;
                     //update the vector in the labeledVector
-                    labeledVector.setVec(*l);
+                    labeledVector.setVec(l);
                     //update the classification in the labeledVector
                     labeledVector.setLabel(classification);
                     //update the labeledVector list member
-                    this->Labeled_vectors.push_back(labeledVector);
-                }
-                else{
-                    return false;
+                    vecList.push_back(labeledVector);
                 }
             }
         }
+        return vecList;
     }
 
 /**
@@ -67,7 +71,7 @@ bool LoadData::createLabeled(string s){
 * @return (vector*)
 */
 
-vector<double>* LoadData:: vectorFromString(string strVec) {
+vector<double> LoadData:: vectorFromString(string strVec) {
     vector<double> v;
     stringstream stream(strVec);
     //while the string isn't empty
@@ -77,52 +81,56 @@ vector<double>* LoadData:: vectorFromString(string strVec) {
         getline(stream,num,',');
         //if the word is digit
         if (!(Utilities::validateNumStr(num))) {
-            return nullptr;
+            v.clear();
+            return v;
         }
         else{
             v.push_back(stod(num));
         }
     }
-    return &v;
+    return v;
 }
 /**
 * create the LabeledVector list
 * @param assignment (string)
 */
-bool LoadData::createUnLabeled(string s){
-    vector<double>* l;
+list<UnlabeledVector> LoadData::createUnLabeled(string s){
+    vector<double> l;
     stringstream stream(s);
+    list<UnlabeledVector> vecList;
     string token;
     //if the file isn't empty
     if (s.empty())
     {
         //separate the file's string by new line, etch line is a labeled vector.
-        while(getline(stream,token,'\n')){
-             l=vectorFromString(token);
+        while( getline(stream,token,'\n')){
+            l =vectorFromString(token);
             //if the vector is valid
-            if(l){
-                if(this->Labeled_vectors.empty()){
+            if(l.empty()){
+                vecList.clear();
+            }
+            else{
+                if(vecList.empty()){
                     // updates the first vector size member
-                    this->vectorSize = (*l).size();
+                    this->vectorSize = l.size();
                 }
                 else
                 {
                     // the vectors isn't in the same size
-                    if((*l).size()!=this->vectorSize){
-                        return false;
+                    if(l.size()!=this->vectorSize){
+                        vecList.clear();
+                        return vecList;
                     }
                 }
                 UnlabeledVector unlabeled;
                 //update the vector in the unlabeledVector
-                unlabeled.setVec(*l);
+                unlabeled.setVec(l);
                 //update the unlabeledVector list member
-                this->unlabeled_vectors.push_back(unlabeled);
-            }
-            else{
-                return false;
+                vecList.push_back(unlabeled);
             }
         }
     }
+    return vecList;
 }
 /**
 * returns the labeled vector list member
@@ -138,7 +146,20 @@ list<LabeledVector> LoadData::getLabeledList() {
 list<UnlabeledVector> LoadData::getUnLabeledList() {
     return this->unlabeled_vectors;
 }
-
+/**
+* sets the labeled vector list member
+* @param list (list<LabeledVector>)
+*/
+void LoadData::setLabeledList(list<LabeledVector> list) {
+     this->Labeled_vectors=list;
+}
+/**
+* sets the Unlabeled vector list member
+* @param list (list<LabeledVector>)
+*/
+void LoadData::setUnLabeledList(list<UnlabeledVector> list) {
+     this->unlabeled_vectors=list;
+}
 
 
 

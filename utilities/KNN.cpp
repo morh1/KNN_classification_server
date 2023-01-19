@@ -41,12 +41,22 @@ void KNN::setK(int k) {
 void KNN::setMat(string mat) {
     this->mat = mat;
 }
-
+LoadData KNN::getLoadData() {
+    return this->loadData;
+}
 int KNN::getK() {
     return this->k;
 }
 string KNN::getMat() {
     return this->mat;
+}
+string KNN::createClassificationStr(){
+    string classification_str;
+    int vec_counter=0;
+    while(!(this->getLoadData().getUnLabeledList().empty())){
+        //classification_str.append(to_string(vec_counter)+"/t"+findClassification(this->getLoadData().getUnLabeledList().pop_front())+"/n");
+    }
+    return classification_str;
 }
 /**
  *  the function get vector and return it's classification by implements the KNN algorithm
@@ -54,10 +64,9 @@ string KNN::getMat() {
  * @param (vector<double>)
  * @return (string)
  */
- /*
 string KNN::findClassification(const vector<double>& vector) {
     //gets the classified vectors list
-    list<LabeledVector> lst = this->loadData.getVecList();
+    list<LabeledVector> lst = this->loadData.getLabeledList();
     list<LabeledVector>::iterator it;
     list<TagDist> calcDistList;
 //create the distance list between the param vector and the vectors in the list
@@ -94,7 +103,7 @@ string KNN::findClassification(const vector<double>& vector) {
     }
 
     return maxString;
-}*/
+}
 /**
  * the function gets 2 vectors and calculate the distance between them according
  * to the distance algorithm name the in the member mat
@@ -119,12 +128,7 @@ double KNN::stringBasedMetricCalc(vector<double> v1, vector<double> v2) {
     return 0;
 
 }
-void KNN::loadVectorsList(string labeled_str,string unlabeled_str){
-    this->validData=false;
-    if(this->loadData.createLabeled(labeled_str) && this->loadData.createUnLabeled(unlabeled_str)){
-        validData=true;
-    }
-}
+
 
 
 

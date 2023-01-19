@@ -24,18 +24,18 @@ public:
 * update the LabeledVector list
 *  @param assignment (string)
 */
-    bool createLabeled(string s);
+    list<LabeledVector>  createLabeled(string s);
 /**
 * create the LabeledVector list
 * @param assignment (string)
 */
-   bool createUnLabeled(string s);
+    list<UnlabeledVector>  createUnLabeled(string s);
 /**
  * return a string as a LabeledVector
  * @param (string)
  * @return (vector*)
  */
-    vector<double>* vectorFromString(string strVec);
+    vector<double> vectorFromString(string strVec);
 /**
 * returns the labeled vector list member
 * @return list (list<LabeledVector>)
@@ -46,7 +46,16 @@ public:
  * @return list (list<UnLabeledVector>)
  */
     list<UnlabeledVector> getUnLabeledList();
-
+/**
+* returns the unlabeled vectors list member
+* @return list (list<UnLabeledVector>)
+*/
+    void setUnLabeledList(list<UnlabeledVector> list);
+/**
+* sets the labeled vector list member
+* @param list (list<LabeledVector>)
+*/
+    void setLabeledList(list<LabeledVector> list);
 
 
 

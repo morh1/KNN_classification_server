@@ -9,8 +9,15 @@ OptionThree::OptionThree(DefaultIO *dio,KNN &knn) {
     this->knn= knn;
     this->description ="3. classify data";
 }
-OptionThree ::OptionThree() {}
+OptionThree ::OptionThree() {
+}
 
 void OptionThree::execute() {
-
+    if(!this->knn.validData){
+        this->dio->write(PS_UPLOAD);
+        //cli.start??????????????????????????????
+    }
+    this->knn.createClassificationStr();
+    // create a paramer in knn? convert information
+    this->dio->write(COMPLETE);
 }
