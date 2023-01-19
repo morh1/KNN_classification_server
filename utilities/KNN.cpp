@@ -52,9 +52,13 @@ string KNN::getMat() {
 }
 string KNN::createClassificationStr(){
     string classification_str;
+    string classification;
     int vec_counter=0;
     while(!(this->getLoadData().getUnLabeledList().empty())){
-        //classification_str.append(to_string(vec_counter)+"/t"+findClassification(this->getLoadData().getUnLabeledList().pop_front())+"/n");
+        vec_counter++;
+        classification=findClassification(this->getLoadData().getUnLabeledList().front().getVector());
+        this->getLoadData().getUnLabeledList().pop_front();
+        classification_str.append(to_string(vec_counter)+"\t"+classification+"\n");
     }
     return classification_str;
 }
@@ -128,7 +132,20 @@ double KNN::stringBasedMetricCalc(vector<double> v1, vector<double> v2) {
     return 0;
 
 }
-
+/**
+*validData getter
+*/
+bool KNN::getValidData()
+{
+    return this->validData;
+}
+/**
+*validData setter
+*/
+void KNN::setValidData(bool b)
+{
+   this->validData=b;
+}
 
 
 

@@ -13,6 +13,7 @@ private:
     LoadData loadData;
     string mat = "EUC";
     int k=5;
+    bool validData=false;
 public:
 /**
  * The Knn constructor
@@ -40,6 +41,14 @@ void setK(int k);
  */
 int getK();
 /**
+ * validData getter
+ */
+bool getValidData();
+/**
+ * validData setter
+ */
+void setValidData(bool b);
+/**
  * mat getter
  */
 string getMat();
@@ -66,8 +75,6 @@ LoadData getLoadData();
  * @return (string)
  */
     string findClassification(const vector<double>& vector);
-
-    bool validData=false;
 };
 
 

@@ -4,7 +4,7 @@
 
 #include "OptionThree.h"
 
-OptionThree::OptionThree(DefaultIO *dio,KNN &knn) {
+OptionThree::OptionThree(DefaultIO *dio,KNN*knn) {
     this->dio = dio;
     this->knn= knn;
     this->description ="3. classify data";
@@ -13,11 +13,12 @@ OptionThree ::OptionThree() {
 }
 
 void OptionThree::execute() {
-    if(!this->knn.validData){
+    string classification;
+    if(!(this->knn->getValidData())){
         this->dio->write(PS_UPLOAD);
-        //cli.start??????????????????????????????
+        return;
     }
-    this->knn.createClassificationStr();
+    classification= this->knn->createClassificationStr();
     // create a paramer in knn? convert information
     this->dio->write(COMPLETE);
 }

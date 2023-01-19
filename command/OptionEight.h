@@ -10,10 +10,10 @@
 
 class OptionEight : public Command{
 private:
-    KNN knn;
+    KNN* knn;
 public:
     OptionEight();
-    OptionEight(DefaultIO *dio,KNN &knn);
+    OptionEight(DefaultIO *dio,KNN* knn);
     void execute() override;
 };
 

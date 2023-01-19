@@ -1,6 +1,6 @@
 #include "OptionOne.h"
 
-OptionOne::OptionOne(DefaultIO * dio,KNN &knn) {
+OptionOne::OptionOne(DefaultIO * dio,KNN* knn) {
     this->dio = dio;
     this->knn= knn;
     this->description = "1. upload an unclassified csv data file";
@@ -23,7 +23,7 @@ void OptionOne::execute() {
         labeled_str.append(labeled_line+"\n");
         labeled_line = this->dio->read();
     }
-    Labeled_vectors=this->knn.getLoadData().createLabeled(labeled_str);
+    Labeled_vectors=this->knn->getLoadData().createLabeled(labeled_str);
     if(Labeled_vectors.empty()){
         this->dio->write(ERROR);
         return;
@@ -39,7 +39,7 @@ void OptionOne::execute() {
         unlabeled_str.append(unlabeled_line+"\n");
         unlabeled_line = this->dio->read();
     }
-    unlabeled_vectors=this->knn.getLoadData().createUnLabeled(unlabeled_str);
+    unlabeled_vectors=this->knn->getLoadData().createUnLabeled(unlabeled_str);
     if(unlabeled_vectors.empty()){
         this->dio->write(ERROR);
         return;
@@ -47,8 +47,8 @@ void OptionOne::execute() {
     }
     else{
         //sets the new Unlabeled and labeled vectors list
-        this->knn.getLoadData().setUnLabeledList(unlabeled_vectors);
-        this->knn.getLoadData().setLabeledList(Labeled_vectors);
+        this->knn->getLoadData().setUnLabeledList(unlabeled_vectors);
+        this->knn->getLoadData().setLabeledList(Labeled_vectors);
     }
-    this->knn.validData=true;
+    this->knn->setValidData(true);
 }

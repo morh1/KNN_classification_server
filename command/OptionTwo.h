@@ -12,10 +12,10 @@
 
 class OptionTwo : public Command{
 private:
-    KNN knn;
+    KNN* knn;
 public:
     OptionTwo();
-    OptionTwo(DefaultIO *dio,KNN &knn);
+    OptionTwo(DefaultIO *dio,KNN* knn);
     void execute() override ;
 
 };

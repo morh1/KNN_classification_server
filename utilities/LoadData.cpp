@@ -100,7 +100,7 @@ list<UnlabeledVector> LoadData::createUnLabeled(string s){
     list<UnlabeledVector> vecList;
     string token;
     //if the file isn't empty
-    if (s.empty())
+    if (!s.empty())
     {
         //separate the file's string by new line, etch line is a labeled vector.
         while( getline(stream,token,'\n')){
