@@ -12,65 +12,12 @@ using namespace std;
  * The default constructor.
  */
 LoadData::LoadData() { }
-/**
-* update the LabeledVector list
-*/
-list<LabeledVector> LoadData::createLabeled(string s){
-    stringstream stream(s);
-    list<LabeledVector> vecList;
-    string token;
-    //if the file isn't empty
-    if (!s.empty())
-    {
-            //separate the file's string by new line, etch line is a labeled vector.
-            while(getline(stream,token,'\n')){
-                //looking for the classification word
-                int i=token.length()-1;
-                while(token[i]!=','){
-                    i--;
-                }
-                //separate between the classification and the vector string
-                string classification =token.substr (i+1,token.length()-1-i);
-                string strVec=token.substr (0,i);
-                vector<double> l= vectorFromString(strVec);
-                //if the vector is valid
-                if(l.empty()){
-                    //return an empty list;
-                    vecList.clear();
-                }
-                else{
-                    if(vecList.empty()){
-                        // updates the first vector size member
-                        this->vectorSize = l.size();
-                    }
-                    else
-                    {
-                        // the vectors isn't in the same size >> in valid
-                        if(l.size()!=this->vectorSize){
-                            //return an empty vector list
-                            vecList.clear();
-                            return vecList;
-                        }
-                    }
-                    LabeledVector labeledVector;
-                    //update the vector in the labeledVector
-                    labeledVector.setVec(l);
-                    //update the classification in the labeledVector
-                    labeledVector.setLabel(classification);
-                    //update the labeledVector list member
-                    vecList.push_back(labeledVector);
-                }
-            }
-        }
-        return vecList;
-    }
 
 /**
 * return a string as a LabeledVector
 * @param (string)
 * @return (vector*)
 */
-
 vector<double> LoadData:: vectorFromString(string strVec) {
     vector<double> v;
     stringstream stream(strVec);
@@ -89,48 +36,6 @@ vector<double> LoadData:: vectorFromString(string strVec) {
         }
     }
     return v;
-}
-/**
-* create the LabeledVector list
-* @param assignment (string)
-*/
-list<UnlabeledVector> LoadData::createUnLabeled(string s){
-    vector<double> l;
-    stringstream stream(s);
-    list<UnlabeledVector> vecList;
-    string token;
-    //if the file isn't empty
-    if (!s.empty())
-    {
-        //separate the file's string by new line, etch line is a labeled vector.
-        while( getline(stream,token,'\n')){
-            l =vectorFromString(token);
-            //if the vector is valid
-            if(l.empty()){
-                vecList.clear();
-            }
-            else{
-                if(vecList.empty()){
-                    // updates the first vector size member
-                    this->vectorSize = l.size();
-                }
-                else
-                {
-                    // the vectors isn't in the same size
-                    if(l.size()!=this->vectorSize){
-                        vecList.clear();
-                        return vecList;
-                    }
-                }
-                UnlabeledVector unlabeled;
-                //update the vector in the unlabeledVector
-                unlabeled.setVec(l);
-                //update the unlabeledVector list member
-                vecList.push_back(unlabeled);
-            }
-        }
-    }
-    return vecList;
 }
 /**
 * returns the labeled vector list member
@@ -242,13 +147,6 @@ void LoadData ::fromPath(){
 list<LabeledVector> LoadData::getVecList() {
     return this->vectors;
 }*/
-/**
-* returns the vectors size
-* @return int
-*/
-int LoadData::getVecSize() {
-    return this->vectorSize;
-}
 /*
 LabeledVector* LoadData::vectorFromString(string strVec,string classification) {
     vector<double> v;

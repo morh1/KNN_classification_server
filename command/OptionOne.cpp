@@ -1,4 +1,5 @@
 #include "OptionOne.h"
+#include "Utilities.h"
 
 OptionOne::OptionOne(DefaultIO * dio,KNN* knn) {
     this->dio = dio;
@@ -23,7 +24,7 @@ void OptionOne::execute() {
         labeled_str.append(labeled_line+"\n");
         labeled_line = this->dio->read();
     }
-    Labeled_vectors=this->knn->getLoadData().createLabeled(labeled_str);
+    Labeled_vectors=Utilities::createLabeled(labeled_str,this->knn);
     if(Labeled_vectors.empty()){
         this->dio->write(ERROR);
         return;
@@ -39,7 +40,7 @@ void OptionOne::execute() {
         unlabeled_str.append(unlabeled_line+"\n");
         unlabeled_line = this->dio->read();
     }
-    unlabeled_vectors=this->knn->getLoadData().createUnLabeled(unlabeled_str);
+    unlabeled_vectors=Utilities::createUnLabeled(unlabeled_str,this->knn);
     if(unlabeled_vectors.empty()){
         this->dio->write(ERROR);
         return;
@@ -47,8 +48,10 @@ void OptionOne::execute() {
     }
     else{
         //sets the new Unlabeled and labeled vectors list
-        this->knn->getLoadData().setUnLabeledList(unlabeled_vectors);
-        this->knn->getLoadData().setLabeledList(Labeled_vectors);
+        this->knn->setUnLabeledList(unlabeled_vectors);
+        this->knn->setLabeledList(Labeled_vectors);
     }
+    //list<LabeledVector> l=this->knn->getLabeledList();
+    //list<UnlabeledVector> U=this->knn->getUnLabeledList();
     this->knn->setValidData(true);
 }

@@ -30,19 +30,24 @@ public:
 
 using namespace std;
 KNN ::KNN() {}
-KNN :: KNN(LoadData loadData) {
-    this->loadData = loadData;
-}
 
 void KNN::setK(int k) {
     this->k = k;
 }
-
+void KNN::setUnLabeledList(list<UnlabeledVector> list) {
+    this->getUnLabeledList()=list;
+}
+void KNN::setLabeledList(list<LabeledVector> list){
+    this->getLabeledList()=list;
+}
+list<LabeledVector> KNN::getLabeledList() {
+    return this->Labeled_vectors;
+}
+list<UnlabeledVector> KNN::getUnLabeledList() {
+    return this->Unlabeled_vectors;
+}
 void KNN::setMat(string mat) {
     this->mat = mat;
-}
-LoadData KNN::getLoadData() {
-    return this->loadData;
 }
 int KNN::getK() {
     return this->k;
@@ -54,10 +59,11 @@ string KNN::createClassificationStr(){
     string classification_str;
     string classification;
     int vec_counter=0;
-    while(!(this->getLoadData().getUnLabeledList().empty())){
+    list<UnlabeledVector> U=this->getUnLabeledList();
+    while(!(this->getUnLabeledList().empty())){
         vec_counter++;
-        classification=findClassification(this->getLoadData().getUnLabeledList().front().getVector());
-        this->getLoadData().getUnLabeledList().pop_front();
+        classification=findClassification(this->getUnLabeledList().front().getVector());
+        this->getUnLabeledList().pop_front();
         classification_str.append(to_string(vec_counter)+"\t"+classification+"\n");
     }
     return classification_str;
@@ -70,7 +76,7 @@ string KNN::createClassificationStr(){
  */
 string KNN::findClassification(const vector<double>& vector) {
     //gets the classified vectors list
-    list<LabeledVector> lst = this->loadData.getLabeledList();
+    list<LabeledVector> lst = this->getLabeledList();
     list<LabeledVector>::iterator it;
     list<TagDist> calcDistList;
 //create the distance list between the param vector and the vectors in the list
@@ -145,6 +151,21 @@ bool KNN::getValidData()
 void KNN::setValidData(bool b)
 {
    this->validData=b;
+}
+/**
+*vectorsize getter
+*/
+int KNN::getVectorsize()
+{
+    return this->vecSize;
+
+}
+/**
+*vectorsize setter
+*/
+void KNN::setVectorSize(int x)
+{
+    this->vecSize=x;
 }
 
 

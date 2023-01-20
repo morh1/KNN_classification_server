@@ -14,7 +14,6 @@ class LoadData {
 private:
     list<LabeledVector> Labeled_vectors;
     list<UnlabeledVector> unlabeled_vectors;
-    int vectorSize;
     //Irrelevant
     string path;
 
@@ -47,8 +46,8 @@ public:
  */
     list<UnlabeledVector> getUnLabeledList();
 /**
-* returns the unlabeled vectors list member
-* @return list (list<UnLabeledVector>)
+* sets the unlabeled vectors list member
+*  @param list (list<UnLabeledVector>)
 */
     void setUnLabeledList(list<UnlabeledVector> list);
 /**
@@ -60,13 +59,7 @@ public:
 
 
 
-
-
-
-
-
-
-/**
+    /**
  * The constructor updates the path member.
  *
  * @param assignment (string)
