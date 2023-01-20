@@ -275,6 +275,9 @@ list<LabeledVector> Utilities:: createLabeled(string s,KNN* knn){
             }
         }
     }
+    if(knn->getK()>vecList.size()){
+        vecList.clear();
+    }
     return vecList;
 }
 /**

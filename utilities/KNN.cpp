@@ -35,10 +35,10 @@ void KNN::setK(int k) {
     this->k = k;
 }
 void KNN::setUnLabeledList(list<UnlabeledVector> list) {
-    this->getUnLabeledList()=list;
+    this->Unlabeled_vectors=list;
 }
 void KNN::setLabeledList(list<LabeledVector> list){
-    this->getLabeledList()=list;
+    this->Labeled_vectors=list;
 }
 list<LabeledVector> KNN::getLabeledList() {
     return this->Labeled_vectors;
@@ -55,18 +55,15 @@ int KNN::getK() {
 string KNN::getMat() {
     return this->mat;
 }
-string KNN::createClassificationStr(){
-    string classification_str;
-    string classification;
-    int vec_counter=0;
-    list<UnlabeledVector> U=this->getUnLabeledList();
+list<string> KNN::getClassification() {
+    return this->classificationList;
+}
+void KNN::classification(){
     while(!(this->getUnLabeledList().empty())){
-        vec_counter++;
-        classification=findClassification(this->getUnLabeledList().front().getVector());
-        this->getUnLabeledList().pop_front();
-        classification_str.append(to_string(vec_counter)+"\t"+classification+"\n");
+        //get classification foe each vector
+        this->classificationList.push_back(findClassification(this->getUnLabeledList().front().getVector()));
+        this->Unlabeled_vectors.pop_front();
     }
-    return classification_str;
 }
 /**
  *  the function get vector and return it's classification by implements the KNN algorithm
@@ -85,7 +82,6 @@ string KNN::findClassification(const vector<double>& vector) {
     }
 //sorting the list
     calcDistList.sort();
-
     map <string,int> showTimes;
     list<TagDist> ::iterator ite;
     int counter = 0;

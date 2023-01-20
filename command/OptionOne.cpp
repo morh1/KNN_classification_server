@@ -51,7 +51,7 @@ void OptionOne::execute() {
         this->knn->setUnLabeledList(unlabeled_vectors);
         this->knn->setLabeledList(Labeled_vectors);
     }
-    //list<LabeledVector> l=this->knn->getLabeledList();
-    //list<UnlabeledVector> U=this->knn->getUnLabeledList();
+    list<LabeledVector> l=this->knn->getLabeledList();
+    list<UnlabeledVector> U=this->knn->getUnLabeledList();
     this->knn->setValidData(true);
 }
