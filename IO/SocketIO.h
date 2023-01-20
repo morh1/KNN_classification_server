@@ -16,7 +16,6 @@ class SocketIO : public DefaultIO{
 
     string read();
     void write(string string);
-
 public:
     SocketIO(int client_sock);
 };
