@@ -8,8 +8,8 @@ void CLI::start() {
             command->printDescription();
         }
         int_input=stoi(this->dio->read());
-        if(1<=int_input && int_input<=6){
-            if(int_input==6) {
+        if(1<=int_input && int_input<=5 || int_input ==8){
+            if(int_input==8) {
                 this->comArray[5]->execute();
                 return;
             }
@@ -22,18 +22,17 @@ void CLI::start() {
 }
 
 CLI::CLI(DefaultIO *dio){
-this->dio = dio;
-this->opt1 = OptionOne(dio,&knn);
-this->opt2 = OptionTwo(dio,&knn);
-this->opt3 = OptionThree(dio,&knn);
-this->opt4 = OptionFour(dio,&knn);
-this->opt5 = OptionFive(dio,&knn);
-this->opt8 = OptionEight(dio,&knn);
-this->comArray[0]=(&this->opt1);
-this->comArray[1]=(&this->opt2);
-this->comArray[2]=(&this->opt3);
-this->comArray[3]=(&this->opt4);
-this->comArray[4]=(&this->opt5);
-this->comArray[5]=(&this->opt8);
-
+    this->dio = dio;
+    this->opt1 = OptionOne(dio,&knn);
+    this->opt2 = OptionTwo(dio,&knn);
+    this->opt3 = OptionThree(dio,&knn);
+    this->opt4 = OptionFour(dio,&knn);
+    this->opt5 = OptionFive(dio,&knn);
+    this->opt8 = OptionEight(dio,&knn);
+    this->comArray[0]=(&this->opt1);
+    this->comArray[1]=(&this->opt2);
+    this->comArray[2]=(&this->opt3);
+    this->comArray[3]=(&this->opt4);
+    this->comArray[4]=(&this->opt5);
+    this->comArray[5]=(&this->opt8);
 }
