@@ -25,7 +25,7 @@ list<LabeledVector> LoadData::createLabeled(string s){
             //separate the file's string by new line, etch line is a labeled vector.
             while(getline(stream,token,'\n')){
                 //looking for the classification word
-                int i=token.length()-1;
+                unsigned long i=token.size() -1;
                 while(token[i]!=','){
                     i--;
                 }
