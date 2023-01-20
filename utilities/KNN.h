@@ -10,18 +10,24 @@
 using namespace std;
 class KNN {
 private:
-    LoadData loadData;
+    list<LabeledVector> Labeled_vectors;
+    list<UnlabeledVector> Unlabeled_vectors;
+    int vecSize=0;
     string mat = "EUC";
     int k=5;
     bool validData=false;
 public:
 /**
- * The Knn constructor
- *
- * @param (vector<double>)
- * @return (string)
+ * sets the unlabeled  vectors list
+ * @param (list<UnlabeledVector> list)
  */
-KNN(LoadData load);
+    void setUnLabeledList(list<UnlabeledVector> list);
+/**
+ * sets the LabeledVector  vectors list
+ * @param (list<LabeledVector> list)
+ */
+    void setLabeledList(list<LabeledVector> list);
+
 /**
  * The Knn constructor
  *
@@ -45,10 +51,6 @@ int getK();
  */
 bool getValidData();
 /**
- * validData setter
- */
-void setValidData(bool b);
-/**
  * mat getter
  */
 string getMat();
@@ -56,10 +58,6 @@ string getMat();
  * creat string that contain all the unlabeled vectors classification.
  */
 string createClassificationStr();
-/**
- * LoadData getter
- */
-LoadData getLoadData();
 /**
  * the function gets 2 vectors and calculate the distance between them according
  * to the distance algorithm name the in the member mat
@@ -75,6 +73,31 @@ LoadData getLoadData();
  * @return (string)
  */
     string findClassification(const vector<double>& vector);
+/**
+* sets the vector size
+* @param int x
+*/
+    void setVectorSize(int x);
+/**
+ * returns the vectorSize
+ * @return int
+ */
+    int getVectorsize();
+    /**
+ * returns the labeled vectors list
+ * @return  list<LabeledVector>
+ */
+    list<LabeledVector> getLabeledList();
+ /**
+* returns the labeled vectors list
+* @return  list<UnlabeledVector>
+*/
+    list<UnlabeledVector> getUnLabeledList();
+ /**
+* sets valid data parameter
+* @param  bool
+*/
+    void setValidData(bool b);
 };
 
 

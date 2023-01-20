@@ -4,7 +4,7 @@
 #include <vector>
 #include <sstream>
 #include "LoadData.h"
-
+#include "KNN.h"
 using namespace std;
 class Utilities {
 public:
@@ -40,14 +40,6 @@ static bool validIp(string ip);
  */
     static list<string> separateInput(string str_input);
     /**
- * this function gets as a input string that is the shape of digit whitespace digit ...etc
- * and returns the correspond double vector for the string.
- *
- * @param vector<double> ,string
- * @return vector<double>
- */
-    static vector<double> vectorFromString(vector<double> v,string strVec);
-    /**
 * this function validate the correctness of the inserted input to the program ,
 * (need to be only positive or negative floating point numbers
 * @param str
@@ -73,5 +65,21 @@ static bool validIp(string ip);
  * @return (bool)
  */
     static bool validInput(string str);
+/**
+* create the LabeledVector list
+* @param assignment (string)
+*/
+    static list<LabeledVector> createLabeled(string s,KNN* knn);
+/**
+* create the UnLabeledVector list
+* @param assignment (string)
+*/
+    static list<UnlabeledVector> createUnLabeled(string s,KNN* knn);
+/**
+* return a string as a LabeledVector
+* @param (string)
+* @return (vector*)
+*/
+    static vector<double> vectorFromString(string strVec);
 };
 #endif //ADVANCED_PROGRAMING_ASS2_UTILITIES_H
