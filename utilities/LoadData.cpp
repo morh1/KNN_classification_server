@@ -16,6 +16,7 @@ LoadData::LoadData() { }
 /**
 * update the LabeledVector list
 */
+/*
 list<LabeledVector> LoadData::createLabeled(string s){
     stringstream stream(s);
     list<LabeledVector> vecList;
@@ -65,7 +66,7 @@ list<LabeledVector> LoadData::createLabeled(string s){
         }
         return vecList;
     }
-
+*/
 /**
 * return a string as a LabeledVector
 * @param (string)

@@ -18,7 +18,7 @@ void OptionThree::execute() {
         this->dio->write(PS_UPLOAD);
         return;
     }
-    classification= this->knn->createClassificationStr();
+    this->knn->classification();
     // create a paramer in knn? convert information
     this->dio->write(COMPLETE);
 }
