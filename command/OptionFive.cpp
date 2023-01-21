@@ -17,10 +17,10 @@ OptionFive::OptionFive(DefaultIO *dio,KNN* knn) {
  *  default constructor
  */
 OptionFive ::OptionFive() {
-
 }
-
-
+/**
+ *  write the classification string
+ */
 void OptionFive::execute() {
-    this.
+    this->dio->write(this->knn->getClassification());
 }

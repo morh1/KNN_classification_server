@@ -27,20 +27,11 @@ void OptionFour::execute(){
         this->dio->write(PS_UPLOAD);
         return;
     }
-    list<string> classification=this->knn->getClassification();
-    //if there is no classification list
-    if(classification.empty()){
+    //if there is no classification string
+    if(!(this->knn->getClassification().size())){
         this->dio->write(CLASSIFY);
         return;
     }
-    //creates the string
-    string classification_str;
-    int counter=0;
-    while(!classification.empty()){
-        counter++;
-        classification_str.append(to_string(counter)+"\t"+classification.front()+"\n");
-        classification.pop_front();
-    }
-    this->dio->write(classification_str);
+    this->dio->write(this->knn->getClassification());
 
 }

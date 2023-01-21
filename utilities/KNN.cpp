@@ -87,19 +87,13 @@ string KNN::getMat() {
     return this->mat;
 }
 /**
- *  classificationList getter
- * @return (list<string> classificationList)
- */
-list<string> KNN::getClassification() {
-    return this->classificationList;
-}
-/**
  *  cretae the classification list for the unclassified vector
  */
 void KNN::classification(){
+    int counter =0;
     while(!(this->getUnLabeledList().empty())){
-        //get classification for each vector
-        this->classificationList.push_back(findClassification(this->getUnLabeledList().front().getVector()));
+        counter++;
+        this->classificationStr.append(to_string(counter)+"\t"+findClassification(this->getUnLabeledList().front().getVector())+"\n");
         this->Unlabeled_vectors.pop_front();
     }
 }
@@ -194,11 +188,23 @@ int KNN::getVectorsize()
     return this->vecSize;
 }
 /**
-*vectorsize setter
+* vectorsize setter
 */
 void KNN::setVectorSize(int x)
 {
     this->vecSize=x;
+}
+/**
+ * classification string setter
+ */
+void KNN::setClassification(string s){
+    this->classificationStr=s;
+}
+/**
+ * classification string getter
+ */
+string KNN::getClassification(){
+    return this->classificationStr;
 }
 
 

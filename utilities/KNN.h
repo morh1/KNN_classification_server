@@ -12,7 +12,7 @@ class KNN {
 private:
     list<LabeledVector> Labeled_vectors;
     list<UnlabeledVector> Unlabeled_vectors;
-    list<string> classificationList;
+    string classificationStr;
     int vecSize=0;
     string mat = "AUC";
     int k=5;
@@ -35,6 +35,14 @@ public:
  * @return (string)
  */
 KNN();
+/**
+ * classification string setter
+ */
+void setClassification(string s);
+/**
+ * classification string getter
+ */
+string getClassification();
 /**
  * metric setter
  */
@@ -59,10 +67,6 @@ string getMat();
  * creat string that contain all the unlabeled vectors classification.
  */
 void classification();
-/**
- * classification list getter
- */
-list<string> getClassification();
 /**
  * the function gets 2 vectors and calculate the distance between them according
  * to the distance algorithm name the in the member mat
