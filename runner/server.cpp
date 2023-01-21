@@ -45,7 +45,7 @@ int main(){
 
 
 
-    int server_port = 55558;
+    int server_port = 55552;
     int server_socket = creatSocket(server_port);
     if (!server_socket) return 0;
     //list<int> clients;
