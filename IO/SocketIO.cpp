@@ -1,26 +1,34 @@
 #include "SocketIO.h"
+/**
+ * SocketIO constructor init by a sock number.
+ */
+SocketIO::SocketIO(int sock) {
+    this->sock = sock;
+}
 
-SocketIO::SocketIO(int client_sock) {
-    this->sock = client_sock;
-}
+/**
+ * the read function of SocketIO ,read the string from the buffer ,for be able to get strings larger the
+ * some constant ,we using symbol "@" that stands for the end of the read value.
+ * @return
+ */
 string SocketIO::read() {
-    /*
-     * char ch = 0;
-    string read_string = "";
-    while(ch != 10){
+    char ch = 0;
+    string read_string;
+    while(ch != '@'){
         recv(sock,&ch,sizeof(char),0);
-        read_string += ch;
+        if (ch != '@'){
+            read_string += ch;
+        }
     }
-    //cout <<" read " <<  read_string<<endl;
     return read_string;
-     */
-    char buffer[4096] ={0};
-    recv(this->sock,buffer,sizeof(buffer),0);
-    string s(buffer);
-    return s;
 }
+/**
+ * The write function of Socket IO is write data based on the connected socket, the @ is using in the read
+ * function to recognize when the string is over.
+ * @param string
+ */
 void SocketIO::write(string string) {
-     const char* send_buffer = string.c_str();
+    string += "@";
+    const char* send_buffer = string.c_str();
     send(sock,send_buffer, string.size()+1,0);
-    //cout <<" send " <<string<<endl;
 }

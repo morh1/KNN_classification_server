@@ -19,9 +19,9 @@
 using namespace std;
 class Command {
 protected:
-    string description;
     DefaultIO *dio;
 public:
+    string description;
     Command();
 
     //execute() abstract method
