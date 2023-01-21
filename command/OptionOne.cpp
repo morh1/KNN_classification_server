@@ -11,7 +11,7 @@ OptionOne::OptionOne(DefaultIO * dio,KNN* knn) {
     this->description = "1. upload an unclassified csv data file";
 }
 /**
- *  defult cinstructor
+ *  default constructor
  */
 OptionOne ::OptionOne(){}
 /**
@@ -50,6 +50,7 @@ void OptionOne::execute() {
         unlabeled_line = this->dio->read();
     }
     unlabeled_vectors=Utilities::createUnLabeled(unlabeled_str,this->knn);
+    //if one of the vectors is invalid
     if(unlabeled_vectors.empty()){
         this->dio->write(ERROR);
         return;
@@ -59,5 +60,6 @@ void OptionOne::execute() {
         this->knn->setUnLabeledList(unlabeled_vectors);
         this->knn->setLabeledList(Labeled_vectors);
     }
+    //updates validData flag
     this->knn->setValidData(true);
 }
