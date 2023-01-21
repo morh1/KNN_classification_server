@@ -13,10 +13,9 @@
 using namespace std;
 class SocketIO : public DefaultIO{
     int sock;
-
+public:
     string read();
     void write(string string);
-public:
     SocketIO(int client_sock);
 };
 
