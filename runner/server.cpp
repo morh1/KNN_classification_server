@@ -22,6 +22,8 @@ int creatSocket(int port){
     }
     return sock;
 }
+/*
+
 
 int acceptClient(int sock){
     struct sockaddr_in client_sin;
@@ -33,25 +35,45 @@ int acceptClient(int sock){
     }
     return client_sock;
 }
-
+*/
 void startClient(int clientSock){
     SocketIO dio = SocketIO(clientSock);
     CLI cli  = CLI(&dio);
     cli.start();
 }
 int main(){
-    int server_port = 55555;
+
+
+
+    int server_port = 55558;
     int server_socket = creatSocket(server_port);
+    if (!server_socket) return 0;
     //list<int> clients;
     vector<thread> clientThreads;
+    string str = "message";
+
+    struct sockaddr_in client_sin;
+    unsigned int addr_len= sizeof(client_sin);
+    char buffer[4096];
     while (true){
-        int clientSock = acceptClient(server_socket);
+        int clientSock= accept(server_socket,(struct sockaddr*)&client_sin,&addr_len);
+        cout << "client connected!" <<endl;
+        //send(clientSock,str.c_str(),sizeof (string),0);
         if (clientSock == 0){
             perror("error accept client");
-        } else{
-            clientThreads.emplace_back(startClient, clientSock);
+            continue;
         }
-        close(clientSock);
+        /*
+
+        string st = "fddsfffsd\0";
+        strcpy(buffer,st.c_str());
+        send(clientSock,buffer,sizeof (buffer),0);*/
+        thread thread(startClient,clientSock);
+        thread.detach();
+        clientThreads.push_back(std::move(thread));
+        //startClient(clientSock);
+        //clientThreads.emplace_back(startClient, clientSock);
+
     }
 
 }
