@@ -3,22 +3,31 @@
 //
 
 #include "OptionThree.h"
-
+/**
+**
+*  OptionThree constructor initial the parameters
+*
+* @param (DefaultIO * dio,KNN* knn)
+*/
 OptionThree::OptionThree(DefaultIO *dio,KNN*knn) {
     this->dio = dio;
     this->knn= knn;
     this->description ="3. classify data";
 }
-OptionThree ::OptionThree() {
-}
-
+/**
+ *  default constructor
+ */
+OptionThree ::OptionThree() {}
+/**
+ *  creates the classification list
+ */
 void OptionThree::execute() {
     string classification;
+    //if there is no valis data
     if(!(this->knn->getValidData())){
         this->dio->write(PS_UPLOAD);
         return;
     }
     this->knn->classification();
-    // create a paramer in knn? convert information
     this->dio->write(COMPLETE);
 }

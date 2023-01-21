@@ -30,37 +30,75 @@ public:
 
 using namespace std;
 KNN ::KNN() {}
-
+/**
+ *  k setter
+ * @param (int k)
+ */
 void KNN::setK(int k) {
     this->k = k;
 }
+/**
+ *  UnlabeledVector list setter
+ * @param (list<UnlabeledVector> list)
+ */
 void KNN::setUnLabeledList(list<UnlabeledVector> list) {
     this->Unlabeled_vectors=list;
 }
+/**
+ *  LabeledVector list setter
+ * @param (list<LabeledVector> list)
+ */
 void KNN::setLabeledList(list<LabeledVector> list){
     this->Labeled_vectors=list;
 }
+/**
+ *  LabeledVector list getter
+ * @return (list<LabeledVector> list)
+ */
 list<LabeledVector> KNN::getLabeledList() {
     return this->Labeled_vectors;
 }
+/**
+ *  UnlabeledVector list getter
+ * @return (list<UnlabeledVector> list)
+ */
 list<UnlabeledVector> KNN::getUnLabeledList() {
     return this->Unlabeled_vectors;
 }
+/**
+ * mat setter
+ * @param (string mat)
+ */
 void KNN::setMat(string mat) {
     this->mat = mat;
 }
+/**
+ * k getter
+ * @return (int k)
+ */
 int KNN::getK() {
     return this->k;
 }
+/**
+ * mat getter
+ * @return (string mat)
+ */
 string KNN::getMat() {
     return this->mat;
 }
+/**
+ *  classificationList getter
+ * @return (list<string> classificationList)
+ */
 list<string> KNN::getClassification() {
     return this->classificationList;
 }
+/**
+ *  cretae the classification list for the unclassified vector
+ */
 void KNN::classification(){
     while(!(this->getUnLabeledList().empty())){
-        //get classification foe each vector
+        //get classification for each vector
         this->classificationList.push_back(findClassification(this->getUnLabeledList().front().getVector()));
         this->Unlabeled_vectors.pop_front();
     }
@@ -76,11 +114,11 @@ string KNN::findClassification(const vector<double>& vector) {
     list<LabeledVector> lst = this->getLabeledList();
     list<LabeledVector>::iterator it;
     list<TagDist> calcDistList;
-//create the distance list between the param vector and the vectors in the list
+    //create the distance list between the param vector and the vectors in the list
     for (it = lst.begin(); it != lst.end(); ++it){
        calcDistList.emplace_back(stringBasedMetricCalc(vector,it->getVector()),it->getLabel());
     }
-//sorting the list
+    //sorting the list
     calcDistList.sort();
     map <string,int> showTimes;
     list<TagDist> ::iterator ite;
@@ -154,7 +192,6 @@ void KNN::setValidData(bool b)
 int KNN::getVectorsize()
 {
     return this->vecSize;
-
 }
 /**
 *vectorsize setter

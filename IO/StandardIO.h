@@ -11,6 +11,7 @@
 #include <string>
 using namespace std;
 class StandardIO : public DefaultIO {
+public:
     string read();
     void write(string string);
 };
