@@ -305,12 +305,12 @@ list<UnlabeledVector> Utilities::createUnLabeled(string s,KNN* knn){
                     vecList.clear();
                     return vecList;
                 }
+                UnlabeledVector unlabeled;
+                //update the vector in the unlabeledVector
+                unlabeled.setVec(l);
+                //update the unlabeledVector list member
+                vecList.push_back(unlabeled);
             }
-            UnlabeledVector unlabeled;
-            //update the vector in the unlabeledVector
-            unlabeled.setVec(l);
-            //update the unlabeledVector list member
-            vecList.push_back(unlabeled);
         }
     } return vecList;
 }
