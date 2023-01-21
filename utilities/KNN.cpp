@@ -206,7 +206,12 @@ void KNN::setClassification(string s){
 string KNN::getClassification(){
     return this->classificationStr;
 }
-
+/**
+ * initial classification string getter
+ */
+void KNN::initialClassification(){
+     this->classificationStr = "";
+}
 
 
 

@@ -107,6 +107,10 @@ void classification();
 * @param  bool
 */
     void setValidData(bool b);
+/**
+ * initial classification string getter
+ */
+    void initialClassification();
 };
 
 

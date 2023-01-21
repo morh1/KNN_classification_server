@@ -18,19 +18,23 @@ OptionOne ::OptionOne(){}
  *  execute option one recived the vectors data and test files
  */
 void OptionOne::execute() {
+    this->knn->initialClassification();
     string labeled_line, unlabeled_line,labeled_str,unlabeled_str;
     list<LabeledVector> Labeled_vectors;
     list<UnlabeledVector> unlabeled_vectors;
     //asks for a csv path of the classified vectors
     this->dio->write(UPLOAD_CSV_TRAIN);
     //gets the csv content as a string line by line
-    labeled_line = this->dio->read();
+    labeled_str = this->dio->read();
     //while there is content
+    /*
+     *
+
     while(!labeled_line.empty()){
         //create a big string made by all the vectors
-        labeled_str.append(labeled_line+"\n");
+        labeled_str.append(labeled_line);
         labeled_line = this->dio->read();
-    }
+    }*/
     //insert the vectors content into a labeled vectors list
     Labeled_vectors=Utilities::createLabeled(labeled_str,this->knn);
     //if one of the vectors is invalid
