@@ -11,8 +11,11 @@
 #include "../command//OptionFive.h"
 #include "../command/OptionEight.h"
 #include "../utilities/KNN.h"
+#include <mutex>
+#include <thread>
+#include <iostream>
 
-
+using namespace std;
 /**
  * the command line interface class ,hold the relevand data for each client includ the IO settings,
  * and the algorithem settings.

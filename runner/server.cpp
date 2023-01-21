@@ -36,8 +36,7 @@ int acceptClient(int sock){
     return client_sock;
 }
 */
-void startClient(int clientSock){
-    SocketIO dio = SocketIO(clientSock);
+void startClient(SocketIO dio){
     CLI cli  = CLI(&dio);
     cli.start();
 }
@@ -45,7 +44,7 @@ int main(){
 
 
 
-    int server_port = 55552;
+    int server_port = 55550;
     int server_socket = creatSocket(server_port);
     if (!server_socket) return 0;
     //list<int> clients;
@@ -68,7 +67,8 @@ int main(){
         string st = "fddsfffsd\0";
         strcpy(buffer,st.c_str());
         send(clientSock,buffer,sizeof (buffer),0);*/
-        thread thread(startClient,clientSock);
+        SocketIO dio = SocketIO(clientSock);
+        thread thread(startClient,dio);
         thread.detach();
         clientThreads.push_back(std::move(thread));
         //startClient(clientSock);
