@@ -11,7 +11,9 @@
 #include <string.h>
 #include <thread>
 
-
+#include <iostream>
+#include <fstream>
+#include <sstream>
 using namespace std;
 int creatSocket(const char* ip_address,int port){
     int sock = socket(AF_INET, SOCK_STREAM, 0);
@@ -40,8 +42,14 @@ void toPath(string path,string data) {
     if (file.is_open()) {
         file << data;
         file.close();
-
     }
+}
+void sendFile(string path,SocketIO sock) {
+    ifstream file(path);
+    stringstream buffer;
+    buffer << file.rdbuf();
+    string csv_string = buffer.str();
+    sock.write(csv_string);
 }
 
 int main(int argc,char** argv){
@@ -50,20 +58,33 @@ int main(int argc,char** argv){
     int clientSock = creatSocket(ip_address,port_no);
     SocketIO socketIo = SocketIO(clientSock);
     StandardIO standardIo = StandardIO();
-    string input,output;
+    string input,output,path,data;
     char buffer[4096];
     while (true){
         //read the information that sent by the server
         output=socketIo.read();
-        //write it
+        //write the option list on the client screen.
         standardIo.write(output);
-        //read the input of the user
+        //read the input of the user(shoulde be a number)
         input=standardIo.read();
         //sand to the server
         socketIo.write(input);
+        if (input == "1"){
+            standardIo.write(socketIo.read());
+            path =  standardIo.read();
+            cout <<path<<endl;
+            sendFile(path,socketIo);
+            output = socketIo.read();
+            standardIo.write(output);
+            if (output == ERROR){
+                continue;
+            }
+            path =  standardIo.read();
+            sendFile(path,socketIo);
+        }
         if(input=="5"){
-            string path = standardIo.read();
-            string data = socketIo.read();
+            path = standardIo.read();
+            data = socketIo.read();
             thread thread(toPath,path,data);
             thread.detach();
 
