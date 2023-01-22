@@ -17,6 +17,7 @@ private:
     string mat = "AUC";
     int k=5;
     bool validData=false;
+    int vectNum=0;
 public:
 /**
  * sets the unlabeled  vectors list
@@ -111,6 +112,18 @@ void classification();
  * initial classification string getter
  */
     void initialClassification();
+/**
+ * initial vrcsize
+ */
+    void initialSize();
+ /**
+ * vectNum setter
+ */
+    void setVectNum(int x);
+/**
+ * vectNum getter
+ */
+    int getVectNum();
 };
 
 

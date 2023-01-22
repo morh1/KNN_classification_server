@@ -16,7 +16,7 @@ string SocketIO::read() {
     string read_string;
     while(ch != '@'){
         recv(sock,&ch,sizeof(char),0);
-        if (ch != '@'){
+        if (ch != '@' && ch != 0){
             read_string += ch;
         }
     }
