@@ -37,6 +37,7 @@ int main(){
 
 
 
+
     int server_port = 55553;
     int server_socket = creatSocket(server_port);
     if (!server_socket) return 0;
@@ -44,7 +45,6 @@ int main(){
     //vector<thread> clientThreads;
     struct sockaddr_in client_sin;
     unsigned int addr_len= sizeof(client_sin);
-    char buffer[4096];
     while (true){
         int clientSock= accept(server_socket,(struct sockaddr*)&client_sin,&addr_len);
         //cout << "client connected!" <<endl;

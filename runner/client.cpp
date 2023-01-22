@@ -152,8 +152,8 @@ int main(int argc,char** argv){
     int clientSock = creatSocket(ip_address,port_no);
     SocketIO socketIo = SocketIO(clientSock);
     StandardIO standardIo = StandardIO();
+
     string input;
-    char buffer[4096];
     while (true){
         //write the option list on the client screen.
         standardIo.write(socketIo.read());
