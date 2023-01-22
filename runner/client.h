@@ -3,7 +3,6 @@
 
 #include "../IO/SocketIO.h"
 #include "../IO/StandardIO.h"
-#include "../command/Command.h"
 #include <iostream>
 #include <sys/socket.h>
 #include <stdio.h>
@@ -12,10 +11,11 @@
 #include <unistd.h>
 #include <string.h>
 #include <thread>
-
 #include <iostream>
 #include <fstream>
 #include <sstream>
+#define ERROR "ERROR"
+
 
 class client {
 
