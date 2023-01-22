@@ -6,8 +6,9 @@
 #define KNN_CLASSIFICATION_SERVER_OPTIONTWO_H
 
 
-#include "DefaultIO.h"
-#include "KNN.h"
+#include "../IO/DefaultIO.h"
+#include "../utilities/KNN.h"
+#include "../utilities/Utilities.h"
 #include "Command.h"
 
 class OptionTwo : public Command{

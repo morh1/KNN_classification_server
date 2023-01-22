@@ -1,7 +1,3 @@
-//
-// Created by mor on 1/13/23.
-//
-
 #ifndef KNN_CLASSIFICATION_SERVER_UNLABELEDVECTOR_H
 #define KNN_CLASSIFICATION_SERVER_UNLABELEDVECTOR_H
 #include <vector>

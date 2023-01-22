@@ -6,7 +6,8 @@
 #define KNN_CLASSIFICATION_SERVER_OPTIONONE_H
 
 #include "Command.h"
-#include "KNN.h"
+#include "../utilities/KNN.h"
+#include "../utilities/Utilities.h"
 class OptionOne : public Command{
 private:
     KNN* knn;

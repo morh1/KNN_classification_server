@@ -1,19 +1,5 @@
 #include "client.h"
-#include "../IO/SocketIO.h"
-#include "../IO/StandardIO.h"
-#include "../command/Command.h"
-#include <iostream>
-#include <sys/socket.h>
-#include <stdio.h>
-#include <netinet/in.h>
-#include <arpa/inet.h>
-#include <unistd.h>
-#include <string.h>
-#include <thread>
 
-#include <iostream>
-#include <fstream>
-#include <sstream>
 using namespace std;
 int creatSocket(const char* ip_address,int port){
     int sock = socket(AF_INET, SOCK_STREAM, 0);

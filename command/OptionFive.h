@@ -7,7 +7,7 @@
 
 
 #include "Command.h"
-#include "KNN.h"
+#include "../utilities/KNN.h"
 
 class OptionFive : public Command{
 private:

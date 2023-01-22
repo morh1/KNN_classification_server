@@ -3,8 +3,11 @@
 #include <string>
 #include <vector>
 #include <sstream>
-#include "LoadData.h"
 #include "KNN.h"
+#include <iostream>
+#include <list>
+#include <bits/stdc++.h>
+
 using namespace std;
 class Utilities {
 public:

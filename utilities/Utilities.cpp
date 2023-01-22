@@ -1,9 +1,4 @@
-#include <iostream>
 #include "Utilities.h"
-#include "LoadData.h"
-#include "KNN.h"
-#include <list>
-#include <bits/stdc++.h>
 
 
 using namespace std;
