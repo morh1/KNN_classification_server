@@ -33,5 +33,6 @@ void OptionFive::execute() {
         this->dio->write(CLASSIFY);
         return;
     }
+    this->dio->write("true");
     this->dio->write(this->knn->getClassification());
 }
