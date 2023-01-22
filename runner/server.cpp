@@ -28,18 +28,31 @@ void startClient(SocketIO dio){
     dio.closeSocket();
 }
 
-int main(){
-    int server_port = 55553;
+int getPort(int argc,char** argv){
+    if (argc != 2){
+        cout << "wrong amount of arguments"<<endl;
+        return 0;
+    }
+    if(!Utilities::validPort(argv[1])){
+        cout << "invalid port number"<<endl;
+        return 0;
+    }
+    return stoi(argv[1]);
+}
+
+int main(int argc,char** argv){
+    int server_port = getPort(argc,argv);
+    if (!server_port){
+        return 0;
+    }
     int server_socket = creatSocket(server_port);
-    if (!server_socket) return 0;
-    //list<int> clients;
-    //vector<thread> clientThreads;
+    if (!server_socket) {
+        return 0;
+    }
     struct sockaddr_in client_sin;
     unsigned int addr_len= sizeof(client_sin);
     while (true){
         int clientSock= accept(server_socket,(struct sockaddr*)&client_sin,&addr_len);
-        //cout << "client connected!" <<endl;
-        //send(clientSock,str.c_str(),sizeof (string),0);
         if (clientSock == 0){
             perror("error accept client");
             continue;
@@ -47,7 +60,6 @@ int main(){
         SocketIO dio = SocketIO(clientSock);
         thread thread(startClient,dio);
         thread.detach();
-        //clientThreads.push_back(std::move(thread));
     }
 
 }
