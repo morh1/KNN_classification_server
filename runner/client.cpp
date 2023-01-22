@@ -115,9 +115,7 @@ int main(int argc,char** argv){
     SocketIO socketIo = SocketIO(clientSock);
     StandardIO standardIo = StandardIO();
     string input,output,path,data;
-    char buffer[4096];
     while (true){
-        cout << "back for another loop "<<endl;
         //write the option list on the client screen.
         standardIo.write(socketIo.read());
         //read the input of the user(shoulde be a number)

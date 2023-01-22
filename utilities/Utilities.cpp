@@ -160,7 +160,7 @@ bool Utilities::validDisStr(string disStr){
  * @return (bool)
  */
 bool Utilities::validInt(string k){
-    for(int i=0;i< k.size();i++){
+    for(int i=0;i< (int) k.size();i++){
         if (!(isdigit(k[i]))){
             return false;
         }
@@ -253,8 +253,8 @@ list<LabeledVector> Utilities:: createLabeled(string s,KNN* knn){
                 }
                 else
                 {
-                    // the vectors isn't in the same size >> in valid
-                    if(l.size()!= knn->getVectorsize()){
+                    // the vectors aren't in the same size >> in valid
+                    if((int) l.size()!= knn->getVectorsize()){
                         //return an empty vector list
                         vecList.clear();
                         return vecList;
@@ -270,7 +270,7 @@ list<LabeledVector> Utilities:: createLabeled(string s,KNN* knn){
             }
         }
     }
-    if(knn->getK()>vecList.size()){
+    if(knn->getK()>(int)vecList.size()){
         vecList.clear();
     }
     return vecList;
@@ -295,8 +295,8 @@ list<UnlabeledVector> Utilities::createUnLabeled(string s,KNN* knn){
                 vecList.clear();
             }
             else{
-                // the vectors isn't in the same size
-                if(l.size()!=knn->getVectorsize()){
+                // the vectors aren't in the same size
+                if((int) l.size() != knn->getVectorsize()){
                     vecList.clear();
                     return vecList;
                 }

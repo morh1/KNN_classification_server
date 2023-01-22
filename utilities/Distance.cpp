@@ -24,7 +24,7 @@ double disCalc(float x1,float x2,float i){
 double minkowski(vector<double> v1, vector<double> v2,double p){
     double distance=0;
     //the sigma
-    for (int i=0; i<v1.size();i++){
+    for (int i=0; i<(int)v1.size();i++){
         distance+=disCalc(v1[i],v2[i],p);
     }
     // exponent the val by 1/p 
@@ -39,7 +39,7 @@ double minkowski(vector<double> v1, vector<double> v2,double p){
 double euclidean(vector<double> v1, vector<double> v2){
     double distance=0;
     //the sigma
-    for (int i=0; i<v1.size();i++){
+    for (int i=0; i<(int)v1.size();i++){
         distance+=disCalc(v1[i],v2[i],2);
     }
 
@@ -65,7 +65,7 @@ double canberra(vector<double> v1, vector<double> v2){
     double distance=0;
         //the sigma
 
-    for (int i=0; i<v1.size();i++){
+    for (int i=0; i<(int)v1.size();i++){
         //if the vectors hold 0 in the same index we will get 0 in the denominator, in that case we are not sum it.
         if(v1[i] ||  v2[i]){
             distance+=disCalc(v1[i],v2[i],1)/(abs(v1[i])+abs(v2[i]));
@@ -82,7 +82,7 @@ double canberra(vector<double> v1, vector<double> v2){
 double chebyshev (vector<double> v1, vector<double> v2){
     double maxVal=0;
     //looking for the max val.
-     for (int i=0; i<v1.size();i++){
+     for (int i=0; i<(int)v1.size();i++){
         if(disCalc(v1[i],v2[i],1)>maxVal){
             maxVal=disCalc(v1[i],v2[i],1);
         }
