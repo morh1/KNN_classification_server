@@ -6,4 +6,6 @@ OptionEight::OptionEight(DefaultIO *dio,KNN* knn) {
 }
 OptionEight ::OptionEight() {}
 
-void OptionEight::execute() {}
+void OptionEight::execute() {
+
+}
