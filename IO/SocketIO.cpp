@@ -32,3 +32,7 @@ void SocketIO::write(string string) {
     const char* send_buffer = string.c_str();
     send(sock,send_buffer, string.size()+1,0);
 }
+
+void SocketIO::closeSocket() {
+    close(this->sock);
+}

@@ -16,7 +16,7 @@ void CLI::start() {
         string input=this->dio->read();
         //first char
         char c = input[0];
-        if(input.length()==1 && ((c>=49 && c<=53) || c<=56)){
+        if(input.length()==1 && ((c>=49 && c<=53) || c==56)){
             //the user choose 8
             if(c==56){
                 this->comArray[5]->execute();

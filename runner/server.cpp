@@ -25,19 +25,10 @@ int creatSocket(int port){
 void startClient(SocketIO dio){
     CLI cli  = CLI(&dio);
     cli.start();
+    dio.closeSocket();
 }
-/**
- * disconnect the server with the client
- * @param  (int str)
- */
-void disConnect( int server_socket ){
-    close(server_socket);
-}
+
 int main(){
-
-
-
-
     int server_port = 55553;
     int server_socket = creatSocket(server_port);
     if (!server_socket) return 0;
