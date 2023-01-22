@@ -86,15 +86,19 @@ void inputFive(SocketIO socketIo,StandardIO standardIo){
  */
 void inputTwo(SocketIO socketIo,StandardIO standardIo){
     standardIo.write(socketIo.read());
-    socketIo.write(standardIo.read());
-    //if k isn't valid
-    if(socketIo.read()=="false"){
-        standardIo.write(socketIo.read());
+    string input =standardIo.read();
+    socketIo.write(input);
+    if(!input.empty()){
+        //if k isn't valid
+        if(socketIo.read()=="false"){
+            standardIo.write(socketIo.read());
+        }
+        //if the metric isn't valid
+        if(socketIo.read()=="false"){
+            standardIo.write(socketIo.read());
+        }
     }
-    //if the metric isn't valid
-    if(socketIo.read()=="false"){
-        standardIo.write(socketIo.read());
-    }
+
 }
 /**
  * in case the chosen option is tree
