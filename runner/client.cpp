@@ -51,6 +51,76 @@ void sendFile(string path,SocketIO sock) {
     string csv_string = buffer.str();
     sock.write(csv_string);
 }
+void inputOne(SocketIO socketIo,StandardIO standardIo){
+    standardIo.write(socketIo.read());
+    string path =  standardIo.read();
+    sendFile(path,socketIo);
+    string output = socketIo.read();
+    standardIo.write(output);
+    if (output == ERROR){
+        return;
+    }
+    standardIo.write(socketIo.read());
+    path =  standardIo.read();
+    sendFile(path,socketIo);
+    standardIo.write(socketIo.read());
+}
+void inputFive(SocketIO socketIo,StandardIO standardIo){
+    if(socketIo.read() == "false"){
+        standardIo.write(socketIo.read());
+        return;
+    }
+    string path = standardIo.read();
+    string data = socketIo.read();
+    thread thread(toPath,path,data);
+    thread.detach();
+}
+void inputTwo(SocketIO socketIo,StandardIO standardIo){
+    standardIo.write(socketIo.read());
+    socketIo.write(standardIo.read());
+    //if k isnt valid
+    if(socketIo.read()=="false"){
+        standardIo.write(socketIo.read());
+    }
+    //if the matric isnt valid
+    if(socketIo.read()=="false"){
+        standardIo.write(socketIo.read());
+    }
+}
+void inputThree(SocketIO socketIo,StandardIO standardIo){
+    standardIo.write(socketIo.read());
+}
+void inputFour(SocketIO socketIo,StandardIO standardIo){
+    standardIo.write(socketIo.read());
+}
+void inputEight(SocketIO socketIo,StandardIO standardIo){
+    return;
+}
+bool routeInput(SocketIO socketIo,StandardIO standardIo,string input){
+    if(input=="1"){
+        inputOne( socketIo, standardIo);
+        return true;
+    }
+    if(input=="2"){
+        inputTwo( socketIo, standardIo);
+        return true;
+    }
+    if(input=="3"){
+        inputThree( socketIo, standardIo);
+        return true;
+    }
+   if(input=="5"){
+        inputFive( socketIo, standardIo);
+        return true;
+    }
+   if(input=="8"){
+        inputEight( socketIo, standardIo);
+        return true;
+   }
+
+    return false;
+
+}
 
 int main(int argc,char** argv){
     const char* ip_address = "127.0.0.1";
@@ -61,37 +131,41 @@ int main(int argc,char** argv){
     string input,output,path,data;
     char buffer[4096];
     while (true){
-        //read the information that sent by the server
-        output=socketIo.read();
+        cout << "back for another loop "<<endl;
         //write the option list on the client screen.
-        standardIo.write(output);
+        standardIo.write(socketIo.read());
         //read the input of the user(shoulde be a number)
         input=standardIo.read();
         //sand to the server
         socketIo.write(input);
+        if(!routeInput(socketIo,standardIo,input)){
+            //we will get an error massage
+            standardIo.write(socketIo.read());
+        }
+        /*
         if (input == "1"){
             standardIo.write(socketIo.read());
             path =  standardIo.read();
-            cout <<path<<endl;
             sendFile(path,socketIo);
             output = socketIo.read();
             standardIo.write(output);
             if (output == ERROR){
                 continue;
             }
+            standardIo.write(socketIo.read());
             path =  standardIo.read();
             sendFile(path,socketIo);
+            standardIo.write(socketIo.read());
         }
         if(input=="5"){
             path = standardIo.read();
             data = socketIo.read();
             thread thread(toPath,path,data);
             thread.detach();
-
         }
         if(input=="8"){
             socketIo.write(input);
             return 0;
-        }
+        }*/
     }
 }

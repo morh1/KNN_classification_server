@@ -27,16 +27,27 @@ void OptionTwo::execute() {
         list<string> lsInput = Utilities::separateInput(input);
         //the k value is valid
         if(Utilities::validInt(lsInput.front())){
-            k=true;
+            if(stoi(lsInput.front())>this->knn->getVectNum()){
+                //
+                this->dio->write("false");
+                this->dio->write(ERROR_K);
+            }
+            else{
+                this->dio->write("true");
+                k=true;
+            }
         }
         else{
+            this->dio->write("false");
             this->dio->write(ERROR_K);
         }
         //the matric is valid
         if(Utilities::validDisStr(lsInput.back())){
+            this->dio->write("true");
             met=true;
         }
         else{
+            this->dio->write("false");
             this->dio->write(ERROR_MET);
         }
         //sets if they both valid

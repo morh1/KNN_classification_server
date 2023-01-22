@@ -5,18 +5,12 @@ using namespace std;
  * create the menu and receive a option from the user
  */
 void CLI::start() {
+    string str  = "Welcome to the KNN Classifier Server. Please choose an option:";
+    for ( Command* command: this->comArray) {
+        str+= "\n";
+        str += command->description;
+    }
     while(true){
-        mutex mtx;
-        //unique_lock<mutex> lock(mtx);
-        //lock.lock();
-        string str  = "Welcome to the KNN Classifier Server. Please choose an option:";
-        //this->dio->write("Welcome to the KNN Classifier Server. Please choose an option:");
-        //lock.unlock();
-        for ( Command* command: this->comArray) {
-            str+= "\n";
-            str += command->description;
-            //command->printDescription();
-        }
         this->dio->write(str);
         //check if the string is one char and this char between 1-6 and 8 (ascii table values)
         string input=this->dio->read();

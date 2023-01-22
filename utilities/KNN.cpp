@@ -207,10 +207,28 @@ string KNN::getClassification(){
     return this->classificationStr;
 }
 /**
- * initial classification string getter
+ * initial classification string
  */
 void KNN::initialClassification(){
      this->classificationStr = "";
+}
+/**
+ * initial vrcsize
+ */
+void KNN::initialSize(){
+    this->vecSize=0;
+}
+/**
+ * vectNum setter
+ */
+void KNN::setVectNum(int x){
+    this->vectNum=x;
+}
+/**
+ * vectNum getter
+ */
+int KNN::getVectNum(){
+     return this->vectNum;
 }
 
 

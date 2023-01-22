@@ -19,6 +19,7 @@ OptionOne ::OptionOne(){}
  */
 void OptionOne::execute() {
     this->knn->initialClassification();
+    this->knn->initialSize();
     string labeled_line, unlabeled_line,labeled_str,unlabeled_str;
     list<LabeledVector> Labeled_vectors;
     list<UnlabeledVector> unlabeled_vectors;
@@ -26,16 +27,6 @@ void OptionOne::execute() {
     this->dio->write(UPLOAD_CSV_TRAIN);
     //gets the csv content as a string line by line
     labeled_str = this->dio->read();
-    //while there is content
-    /*
-     *
-
-    while(!labeled_line.empty()){
-        //create a big string made by all the vectors
-        labeled_str.append(labeled_line);
-        labeled_line = this->dio->read();
-    }*/
-    //insert the vectors content into a labeled vectors list
     Labeled_vectors=Utilities::createLabeled(labeled_str,this->knn);
     //if one of the vectors is invalid
     if(Labeled_vectors.empty()){
@@ -43,27 +34,23 @@ void OptionOne::execute() {
         return;
 
     }
+    this->dio->write(UPLOAD_COMPLETE);
     //asks for a csv path of the unclassified vectors
     this->dio->write(UPLOAD_CSV_TEST);
     //gets the csv content as a string
-    unlabeled_line = this->dio->read();
-    //while there is content
-    while(!unlabeled_line.empty()){
-        //create a big string made by all the vectors
-        unlabeled_str.append(unlabeled_line+"\n");
-        unlabeled_line = this->dio->read();
-    }
+    unlabeled_str = this->dio->read();
     unlabeled_vectors=Utilities::createUnLabeled(unlabeled_str,this->knn);
     //if one of the vectors is invalid
     if(unlabeled_vectors.empty()){
         this->dio->write(ERROR);
         return;
     }
-    else{
-        //sets the new Unlabeled and labeled vectors list
-        this->knn->setUnLabeledList(unlabeled_vectors);
-        this->knn->setLabeledList(Labeled_vectors);
-    }
+    this->dio->write(UPLOAD_COMPLETE);
+    //sets the new Unlabeled and labeled vectors list
+    this->knn->setUnLabeledList(unlabeled_vectors);
+    this->knn->setLabeledList(Labeled_vectors);
+    this->knn->setVectNum(Labeled_vectors.size());
+
     //updates validData flag
     this->knn->setValidData(true);
 }

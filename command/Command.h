@@ -14,6 +14,8 @@
 #define PS_UPLOAD "please upload data"
 #define COMPLETE "classifying data complete"
 #define CLASSIFY "please classify the data"
+#define UPLOAD_COMPLETE "Upload complete"
+#define INVALID_INPUT "invalid input"
 
 
 using namespace std;

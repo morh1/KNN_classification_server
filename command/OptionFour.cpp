@@ -32,6 +32,6 @@ void OptionFour::execute(){
         this->dio->write(CLASSIFY);
         return;
     }
-    this->dio->write(this->knn->getClassification());
+    this->dio->write(this->knn->getClassification() +"Done.");
 
 }
