@@ -17,6 +17,7 @@ public:
     string read();
     void write(string string);
     SocketIO(int client_sock);
+    void closeSocket();
 };
 
 

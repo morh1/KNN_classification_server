@@ -87,11 +87,11 @@ void inputFive(SocketIO socketIo,StandardIO standardIo){
 void inputTwo(SocketIO socketIo,StandardIO standardIo){
     standardIo.write(socketIo.read());
     socketIo.write(standardIo.read());
-    //if k isnt valid
+    //if k isn't valid
     if(socketIo.read()=="false"){
         standardIo.write(socketIo.read());
     }
-    //if the matric isnt valid
+    //if the metric isn't valid
     if(socketIo.read()=="false"){
         standardIo.write(socketIo.read());
     }
