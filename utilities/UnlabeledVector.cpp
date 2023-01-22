@@ -1,6 +1,3 @@
-//
-// Created by mor on 1/13/23.
-//
 #include "UnlabeledVector.h"
 /**
  * The default constructor.

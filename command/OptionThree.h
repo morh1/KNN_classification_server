@@ -3,7 +3,7 @@
 
 
 #include "Command.h"
-#include "KNN.h"
+#include "../utilities/KNN.h"
 class OptionThree : public Command{
 private:
     KNN* knn;

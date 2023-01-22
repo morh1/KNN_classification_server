@@ -2,7 +2,7 @@
 #define KNN_CLASSIFICATION_SERVER_OPTIONFOUR_H
 
 #include "Command.h"
-#include "KNN.h"
+#include "../utilities/KNN.h"
 class OptionFour : public Command{
 private:
     KNN* knn;

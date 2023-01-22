@@ -48,32 +48,22 @@ int main(){
     int server_socket = creatSocket(server_port);
     if (!server_socket) return 0;
     //list<int> clients;
-    vector<thread> clientThreads;
-    string str = "message";
-
+    //vector<thread> clientThreads;
     struct sockaddr_in client_sin;
     unsigned int addr_len= sizeof(client_sin);
     char buffer[4096];
     while (true){
         int clientSock= accept(server_socket,(struct sockaddr*)&client_sin,&addr_len);
-        cout << "client connected!" <<endl;
+        //cout << "client connected!" <<endl;
         //send(clientSock,str.c_str(),sizeof (string),0);
         if (clientSock == 0){
             perror("error accept client");
             continue;
         }
-        /*
-
-        string st = "fddsfffsd\0";
-        strcpy(buffer,st.c_str());
-        send(clientSock,buffer,sizeof (buffer),0);*/
         SocketIO dio = SocketIO(clientSock);
         thread thread(startClient,dio);
         thread.detach();
-        clientThreads.push_back(std::move(thread));
-        //startClient(clientSock);
-        //clientThreads.emplace_back(startClient, clientSock);
-
+        //clientThreads.push_back(std::move(thread));
     }
 
 }

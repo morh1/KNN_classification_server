@@ -1,6 +1,6 @@
 #ifndef KNN_CLASSIFICATION_SERVER_SERVER_H
 #define KNN_CLASSIFICATION_SERVER_SERVER_H
-#include "SocketIO.h"
+#include "../IO/SocketIO.h"
 #include "CLI.h"
 
 

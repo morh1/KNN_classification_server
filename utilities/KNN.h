@@ -1,11 +1,12 @@
 #ifndef ADVANCED_PROGRAMING_ASS2_KNN_H
 #define ADVANCED_PROGRAMING_ASS2_KNN_H
 #include <iostream>
-#include "LoadData.h"
+#include "UnlabeledVector.h"
 #include <vector>
 #include "LabeledVector.h"
 #include "Distance.h"
 #include <map>
+#include <list>
 
 using namespace std;
 class KNN {

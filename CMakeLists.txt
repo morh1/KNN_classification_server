@@ -38,8 +38,8 @@ add_executable(KNN_classification_server
         utilities/KNN.h
         utilities/LabeledVector.cpp
         utilities/LabeledVector.h
-        utilities/LoadData.cpp
-        utilities/LoadData.h
+        #utilities/LoadData.cpp
+        #utilities/LoadData.h
         #utilities/main.cpp
         #utilities/main.h
         utilities/UnlabeledVector.cpp
