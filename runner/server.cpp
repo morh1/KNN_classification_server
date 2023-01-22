@@ -22,23 +22,16 @@ int creatSocket(int port){
     }
     return sock;
 }
-/*
-
-
-int acceptClient(int sock){
-    struct sockaddr_in client_sin;
-    unsigned int addr_len= sizeof(client_sin);
-    int client_sock= accept(sock,(struct sockaddr*)&client_sin,&addr_len);
-    if (client_sock<0){
-        perror("error accepting client");
-        return 0;
-    }
-    return client_sock;
-}
-*/
 void startClient(SocketIO dio){
     CLI cli  = CLI(&dio);
     cli.start();
+}
+/**
+ * disconnect the server with the client
+ * @param  (int str)
+ */
+void disConnect( int server_socket ){
+    close(server_socket);
 }
 int main(){
 
