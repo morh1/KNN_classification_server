@@ -30,10 +30,8 @@ public:
  * @param (list<LabeledVector> list)
  */
     void setLabeledList(list<LabeledVector> list);
-
 /**
  * The Knn constructor
- *
  * @return (string)
  */
 KNN();

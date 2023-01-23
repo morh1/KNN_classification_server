@@ -2,9 +2,7 @@
 
 using namespace std;
 /**
-**
 *  OptionTwo constructor initial the parameters
-*
 * @param (DefaultIO * dio,KNN* knn)
 */
 OptionTwo::OptionTwo(DefaultIO *dio,KNN* knn) {
@@ -13,7 +11,8 @@ OptionTwo::OptionTwo(DefaultIO *dio,KNN* knn) {
     this->description ="2. algorithm settings";
 }
 /**
- *  represents and updates the knn matric and the number of neighbors if required.
+ *  represents and updates the knn metric
+ *  and the number of neighbors if required.
  */
 void OptionTwo::execute() {
     string input;

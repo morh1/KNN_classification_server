@@ -117,7 +117,6 @@ string KNN::findClassification(const vector<double>& vector) {
     map <string,int> showTimes;
     list<TagDist> ::iterator ite;
     int counter = 0;
-    //calcDistList.pop_back();
     //insert the first k neighbors
     for (ite = calcDistList.begin();counter < this->k;counter++){
         //count the recurrence
