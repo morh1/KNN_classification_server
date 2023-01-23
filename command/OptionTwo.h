@@ -16,9 +16,16 @@ private:
     KNN* knn;
 public:
     OptionTwo();
+/**
+*  OptionTwo constructor initial the parameters
+* @param (DefaultIO * dio,KNN* knn)
+*/
     OptionTwo(DefaultIO *dio,KNN* knn);
+/**
+ *  represents and updates the knn metric
+ *  and the number of neighbors if required.
+ */
     void execute() override ;
-
 };
 
 #endif //KNN_CLASSIFICATION_SERVER_OPTIONTWO_H

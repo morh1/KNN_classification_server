@@ -9,6 +9,10 @@ private:
     KNN* knn;
 public:
     OptionEight();
+/**
+ * the OptionEight constructor
+ * @param (DefaultIO *dio,KNN* knn)
+ */
     OptionEight(DefaultIO *dio,KNN* knn);
     void execute() override;
 };

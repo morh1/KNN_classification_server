@@ -12,8 +12,18 @@ class OptionOne : public Command{
 private:
     KNN* knn;
 public:
+/**
+ *  default constructor
+ */
     OptionOne();
+/**
+ *  optionOne constructor initial the parameters
+ * @param (DefaultIO * dio,KNN* knn)
+ */
     OptionOne(DefaultIO *dio,KNN* knn);
+/**
+ *  execute option one received the vectors train and test files
+ */
     void execute() override;
 };
 

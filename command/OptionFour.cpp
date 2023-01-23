@@ -1,8 +1,6 @@
 #include "OptionFour.h"
 /**
-**
 *  OptionFour constructor initial the parameters
-*
 * @param (DefaultIO * dio,KNN* knn)
 */
 OptionFour::OptionFour(DefaultIO *dio,KNN* knn) {
@@ -28,6 +26,7 @@ void OptionFour::execute(){
         this->dio->write(CLASSIFY);
         return;
     }
+    //send the classification string to thr data
     this->dio->write(this->knn->getClassification() +"Done.");
 
 }

@@ -1,11 +1,9 @@
 #ifndef KNN_CLASSIFICATION_SERVER_COMMAND_H
 #define KNN_CLASSIFICATION_SERVER_COMMAND_H
-
-
 #include <string>
 #include "../IO/DefaultIO.h"
 
-
+//macros
 #define UPLOAD_CSV_TRAIN "Please upload your local train CSV file."
 #define UPLOAD_CSV_TEST "Please upload your local test CSV file."
 #define ERROR "ERROR"
