@@ -91,11 +91,14 @@ string KNN::getMat() {
  */
 void KNN::classification(){
     int counter =0;
+    list<UnlabeledVector> recoverList;
     while(!(this->getUnLabeledList().empty())){
         counter++;
-        this->classificationStr.append(to_string(counter)+"\t"+findClassification(this->getUnLabeledList().front().getVector())+"\n");
+        this->classificationStr.append(to_string(counter)+"\t"+findClassification(this->Unlabeled_vectors.front().getVector())+"\n");
+        recoverList.push_back(this->getUnLabeledList().front());
         this->Unlabeled_vectors.pop_front();
     }
+    this->Unlabeled_vectors=recoverList;
 }
 /**
  *  the function get vector and return it's classification by implements the KNN algorithm

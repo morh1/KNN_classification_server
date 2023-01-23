@@ -16,6 +16,7 @@ OptionTwo::OptionTwo(DefaultIO *dio,KNN* knn) {
  */
 void OptionTwo::execute() {
     string input;
+    this->knn->initialClassification();
     //display the knn parameters
     this->dio->write("The current KNN parameters are: K = "+ to_string(this->knn->getK()) + ", distance metric = " + this->knn->getMat());
     //gets the input string

@@ -16,6 +16,7 @@ OptionFour ::OptionFour() {}
  *  print the classification string
  */
 void OptionFour::execute(){
+
     //if there is no data
     if(!this->knn->getValidData()){
         this->dio->write(PS_UPLOAD);
