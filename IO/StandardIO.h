@@ -10,9 +10,20 @@
 #include <fstream>
 #include <string>
 using namespace std;
+/**
+ * this class stands for IO via the command line.
+ */
 class StandardIO : public DefaultIO {
 public:
+    /**
+     * this function reads from the command line.
+     * @return
+     */
     string read();
+    /**
+     * this function reads from the command line.
+     * @return
+     */
     void write(string string);
 };
 

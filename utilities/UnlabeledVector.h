@@ -3,6 +3,9 @@
 #include <vector>
 
 using namespace std;
+/**
+ * The labeled vector class stands for a wrapper class of a double vector.
+ */
 class UnlabeledVector {
 private:
     vector<double> doubleVector;

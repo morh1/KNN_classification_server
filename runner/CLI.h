@@ -34,12 +34,15 @@ class CLI {
     Command* comArray[6];
 
 public:
+    /**
+     * initial the cli option array
+     *
+     * @param (DefaultIO *dio)
+     */
     CLI(DefaultIO *dio);
+    /**
+     * create the menu and receive a option from the user
+     */
     void start();
-
-
-
 };
-
-
 #endif //KNN_CLASSIFICATION_SERVER_CLI_H

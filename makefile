@@ -2,7 +2,7 @@
 CC = g++
 CFLAGS = -Wall -pthread -std=c++11
 
-# Source files for program1
+# Source files for server
 SRC1 = $(wildcard command/*.cpp) $(wildcard utilities/*.cpp) $(wildcard IO/*.cpp) runner/CLI.cpp runner/server.cpp
 OBJS1 = $(SRC1:.cpp=.o)
 

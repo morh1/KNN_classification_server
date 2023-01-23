@@ -9,6 +9,9 @@
 #include <list>
 
 using namespace std;
+/**
+ * The KNN class stands for the object that handel the algorithm functionality.
+ */
 class KNN {
 private:
     list<LabeledVector> Labeled_vectors;
