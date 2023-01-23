@@ -235,6 +235,9 @@ list<LabeledVector> Utilities:: createLabeled(string s,KNN* knn){
             int i=token.length()-1;
             while(token[i]!=','){
                 i--;
+                if(i==0){
+                    return vecList;
+                }
             }
             //separate between the classification and the vector string
             string classification =token.substr (i+1,token.length()-1-i);

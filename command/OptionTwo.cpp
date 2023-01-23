@@ -25,14 +25,16 @@ void OptionTwo::execute() {
     if(!input.empty()){
         bool met=false,k=false;
         list<string> lsInput = Utilities::separateInput(input);
-        //the k value is valid
+        //if the k isn't a valid int
         if(Utilities::validInt(lsInput.front())){
-            if(stoi(lsInput.front())>this->knn->getVectNum()){
-                //
+            //if k is bigger than the classified vectors or 0
+            if(stoi(lsInput.front())>this->knn->getVectNum() || stoi(lsInput.front())==0){
+
                 this->dio->write("false");
                 this->dio->write(ERROR_K);
             }
             else{
+                //k is valid
                 this->dio->write("true");
                 k=true;
             }
@@ -41,7 +43,7 @@ void OptionTwo::execute() {
             this->dio->write("false");
             this->dio->write(ERROR_K);
         }
-        //the matric is valid
+        //the metric is valid
         if(Utilities::validDisStr(lsInput.back())){
             this->dio->write("true");
             met=true;
