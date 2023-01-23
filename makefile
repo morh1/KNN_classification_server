@@ -1,13 +1,13 @@
 # Compiler and flags
 CC = g++
-CFLAGS = -Wall -std=c++11
+CFLAGS = -Wall -pthread -std=c++11
 
 # Source files for program1
 SRC1 = $(wildcard command/*.cpp) $(wildcard utilities/*.cpp) $(wildcard IO/*.cpp) runner/CLI.cpp runner/server.cpp
 OBJS1 = $(SRC1:.cpp=.o)
 
 # Source files for program2
-SRC2 = runner/client.cpp $(wildcard IO/*.cpp)
+SRC2 = runner/client.cpp $(wildcard IO/*.cpp) $(wildcard utilities/*.cpp)
 OBJS2 = $(SRC2:.cpp=.o)
 
 # Executables

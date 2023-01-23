@@ -144,14 +144,37 @@ bool routeInput(SocketIO socketIo,StandardIO standardIo,string input){
     return false;
 }
 /**
+ * the function checks if the arguments if the command line  are valid
+ * @param  (char* argv[])
+ * @return (bool)
+ */
+bool validArgv(int argc,char* argv[]){
+    if (argc != 3){
+        cout << "not right amount of arguments" << endl;
+        return false;
+    }
+    if (!Utilities::validIp( argv[1])) {
+        cout << "invalid ip address" << endl;
+        return false;
+    }
+    if (!Utilities::validPort( argv[2])) {
+        cout << "invalid port address" << endl;
+        return false;
+    }
+    return true;
+}
+/**
  * the main function create the socket and display the menu;
  *
  * @param (int argc,char** argv)
  * @return (int)
  */
 int main(int argc,char** argv){
-    const char* ip_address = "127.0.0.1";
-    const int port_no = atoi(argv[1]);
+    if (!validArgv(argc,argv)){
+        return 0;
+    }
+    char* ip_address = argv[1];
+    int port_no = atoi(argv[2]);
     //create the socket
     int clientSock = creatSocket(ip_address,port_no);
     SocketIO socketIo = SocketIO(clientSock);

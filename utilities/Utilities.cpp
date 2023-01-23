@@ -28,7 +28,6 @@ bool Utilities::validIp(string ip) {
         return true;
     }
     return false;
-
 }
 /**
  * checks if the vector numbers are valid
