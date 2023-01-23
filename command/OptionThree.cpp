@@ -22,6 +22,8 @@ void OptionThree::execute() {
         this->dio->write(PS_UPLOAD);
         return;
     }
-    this->knn->classification();
+    if(this->knn->getClassification().empty()){
+        this->knn->classification();
+    }
     this->dio->write(COMPLETE);
 }
