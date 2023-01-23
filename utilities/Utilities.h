@@ -9,6 +9,9 @@
 #include <bits/stdc++.h>
 
 using namespace std;
+/**
+ * a static class that hold common utilities.
+ */
 class Utilities {
 public:
     /**
