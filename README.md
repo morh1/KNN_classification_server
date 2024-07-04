@@ -9,25 +9,25 @@ The algorithm can calculate the distance between the input vectors to the classi
 * Chebyshev distance<br /> 
 * Canberra distance<br /> 
 * Minkowski distance<br /><br /> 
-The project based on the TCP transport protocol and can connect to number of client in parallel.
+The project based on the TCP transport protocol can connect to several clients in parallel.
 
 **The server display a five option menue to the client:<br/>**
-* 1- The server asks for a double multidimensional classified vectors csv file and a unclassified vectors csv file.<br/>
+* 1- The server asks for a double multidimensional classified vectors CSV file and an unclassified vectors CSV file.<br/>
 The vectors contain doubled numbers that can appear with their sign +,- or with .<br />
 if the classified vectors and the unclassified vectors are not comparable i.e isn't in the same size the server will return the following error message:<br/>
 `ERROR - "ERROR"`<br />
-If the vectors in both files are valid (in the sane size and have double numbers) the server load the data.<br/>
-Also the number of classified vectors sould be >= to the algorithm's k neighbors, if not the server will return the following error message:<br/>
+If the vectors in both files are valid (in the same size and have double numbers) the server loads the data.<br/>
+Also the number of classified vectors could be >= to the algorithm's k neighbors, if not the server will return the following error message:<br/>
 `ERROR - "ERROR"`<br />
-* 2- The server displays the number of neighbors and the matric distance name of the algorithm calculation, the user can change this parameters by wirting a string in this format ``` 4 MAN ```. <br/>By type enter the k neighbors and the matric will stay the same.<br/>
-* 3- Finds the classification acording to the KNN algorithm for each unclassifeid vector.<br/> 
-If the usert didn't press 1 already the server will return the following error message:<br/>
+* 2- The server displays the number of neighbors and the matric distance name of the algorithm calculation, the user can change these parameters by writing a string in this format ``` 4 MAN ```. <br/>By type enter the k neighbors and the matric will stay the same.<br/>
+* 3- Finds the classification according to the KNN algorithm for each unclassified vector.<br/> 
+If the usert didn't press 1 already the server would return the following error message:<br/>
 `ERROR - "ERROR"`<br /> 
 * 4- Prints the classification vectors data to the screen.<br/>
 If the usert didn't press 1 and 3 already the server will return the following error message:<br/>
 `ERROR - "ERROR"`<br /> 
-* 5- Gets a file path from the user and save the classification vectors data in this file.<br/>
-If the usert didn't press 1 and 3 already the server will return the following error message:<br/>
+* 5- Gets a file path from the user and saves the classification vector data in this file.<br/>
+If the usert didn't press 1 and 3 already the server would return the following error message:<br/>
 `ERROR - "ERROR"`<br /><br/>
 
 
